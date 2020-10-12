@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E29883B42534B02A005A52D8 /* Dash-Horizon-Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */; };
+		E29883B92534B90E005A52D8 /* BaluchonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29883B82534B90E005A52D8 /* BaluchonNavigationController.swift */; };
+		E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29883BD2534BDF9005A52D8 /* BaluchonTabBarController.swift */; };
+		E29883C32534C02D005A52D8 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29883C22534C02D005A52D8 /* WeatherViewController.swift */; };
+		E29883CB2534C398005A52D8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29883CA2534C398005A52D8 /* BaseViewController.swift */; };
 		E2CC3D13252B42CD00026CED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D12252B42CD00026CED /* AppDelegate.swift */; };
 		E2CC3D15252B42CD00026CED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D14252B42CD00026CED /* SceneDelegate.swift */; };
-		E2CC3D17252B42CD00026CED /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D16252B42CD00026CED /* MyViewController.swift */; };
+		E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D16252B42CD00026CED /* CurrencyViewController.swift */; };
 		E2CC3D1A252B42CD00026CED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CC3D18252B42CD00026CED /* Main.storyboard */; };
 		E2CC3D1C252B42D000026CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2CC3D1B252B42D000026CED /* Assets.xcassets */; };
 		E2CC3D1F252B42D000026CED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CC3D1D252B42D000026CED /* LaunchScreen.storyboard */; };
@@ -36,10 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dash-Horizon-Demo.otf"; sourceTree = "<group>"; };
+		E29883B82534B90E005A52D8 /* BaluchonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonNavigationController.swift; sourceTree = "<group>"; };
+		E29883BD2534BDF9005A52D8 /* BaluchonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTabBarController.swift; sourceTree = "<group>"; };
+		E29883C22534C02D005A52D8 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		E29883CA2534C398005A52D8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E2CC3D0F252B42CD00026CED /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CC3D12252B42CD00026CED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2CC3D14252B42CD00026CED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2CC3D16252B42CD00026CED /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		E2CC3D16252B42CD00026CED /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		E2CC3D19252B42CD00026CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2CC3D1B252B42D000026CED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2CC3D1E252B42D000026CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +108,11 @@
 		E20731A92534AB6900CEE4DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E2CC3D16252B42CD00026CED /* MyViewController.swift */,
+				E29883C22534C02D005A52D8 /* WeatherViewController.swift */,
+				E2CC3D16252B42CD00026CED /* CurrencyViewController.swift */,
+				E29883BD2534BDF9005A52D8 /* BaluchonTabBarController.swift */,
+				E29883B82534B90E005A52D8 /* BaluchonNavigationController.swift */,
+				E29883CA2534C398005A52D8 /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +144,7 @@
 				E2CC3D14252B42CD00026CED /* SceneDelegate.swift */,
 				E2CC3D1B252B42D000026CED /* Assets.xcassets */,
 				E2CC3D20252B42D000026CED /* Info.plist */,
+				E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */,
 				E20731A92534AB6900CEE4DB /* Controller */,
 				E20731A82534AB5300CEE4DB /* View */,
 				E20731A72534AB4700CEE4DB /* Model */,
@@ -258,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29883B42534B02A005A52D8 /* Dash-Horizon-Demo.otf in Resources */,
 				E2CC3D1F252B42D000026CED /* LaunchScreen.storyboard in Resources */,
 				E2CC3D1C252B42D000026CED /* Assets.xcassets in Resources */,
 				E2CC3D1A252B42CD00026CED /* Main.storyboard in Resources */,
@@ -286,8 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */,
-				E2CC3D17252B42CD00026CED /* MyViewController.swift in Sources */,
+				E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */,
+				E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */,
 				E2CC3D13252B42CD00026CED /* AppDelegate.swift in Sources */,
+				E29883C32534C02D005A52D8 /* WeatherViewController.swift in Sources */,
+				E29883CB2534C398005A52D8 /* BaseViewController.swift in Sources */,
+				E29883B92534B90E005A52D8 /* BaluchonNavigationController.swift in Sources */,
 				E2CC3D15252B42CD00026CED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

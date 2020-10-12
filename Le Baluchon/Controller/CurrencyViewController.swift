@@ -7,29 +7,30 @@
 
 import UIKit
 
-class MyViewController: UIViewController {
+class CurrencyViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        
-        
-        getCurrencydata()
+        navigationItem.title = "Currency Converter"
     }
 
     
     @IBOutlet weak var rateLabel: UILabel!
     
+    @IBAction func didTapOnConvertButton() {
+        getCurrencydata()
+    }
+    
     private let networkManager = NetworkManager()
     
-    func getCurrencydata() {
+    private func getCurrencydata() {
         networkManager.fetch(url: URL(string: "http://data.fixer.io/api/latest?access_key=3d2ba3bcfe5a29250698c07e1ac37680")!) { (result: Result<CurrencyResponse, NetworkManagerError>) in
             
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    print("SUccess")
+                    print("Success")
 
                     let euroToUsdRate = response.rates["USD"]!
                     
