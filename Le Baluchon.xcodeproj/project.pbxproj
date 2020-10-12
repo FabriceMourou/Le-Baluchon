@@ -78,6 +78,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E20731A72534AB4700CEE4DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2CC3D45252B43B700026CED /* NetworkManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E20731A82534AB5300CEE4DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2CC3D18252B42CD00026CED /* Main.storyboard */,
+				E2CC3D1D252B42D000026CED /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E20731A92534AB6900CEE4DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2CC3D16252B42CD00026CED /* MyViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E2CC3D06252B42CD00026CED = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +128,11 @@
 			children = (
 				E2CC3D12252B42CD00026CED /* AppDelegate.swift */,
 				E2CC3D14252B42CD00026CED /* SceneDelegate.swift */,
-				E2CC3D16252B42CD00026CED /* MyViewController.swift */,
-				E2CC3D45252B43B700026CED /* NetworkManager.swift */,
-				E2CC3D18252B42CD00026CED /* Main.storyboard */,
 				E2CC3D1B252B42D000026CED /* Assets.xcassets */,
-				E2CC3D1D252B42D000026CED /* LaunchScreen.storyboard */,
 				E2CC3D20252B42D000026CED /* Info.plist */,
+				E20731A92534AB6900CEE4DB /* Controller */,
+				E20731A82534AB5300CEE4DB /* View */,
+				E20731A72534AB4700CEE4DB /* Model */,
 			);
 			path = "Le Baluchon";
 			sourceTree = "<group>";
