@@ -17,7 +17,8 @@ struct CurrencyResponse: Codable {
 
 
 struct MeteoResponse: Codable {
-    let weather: Double
+    let weather: [String: Double]
+    let city: String
 }
 
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E211F49225372B080023BEF0 /* Reglisse.otf in Resources */ = {isa = PBXBuildFile; fileRef = E211F49125372B080023BEF0 /* Reglisse.otf */; };
+		E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D834D253DECE30050B940 /* LanguageViewController.swift */; };
+		E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25113682535CE0300C8A042 /* TranslateViewController.swift */; };
+		E251136E2535D79700C8A042 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251136D2535D79700C8A042 /* CityViewController.swift */; };
 		E29883B42534B02A005A52D8 /* Dash-Horizon-Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */; };
 		E29883B92534B90E005A52D8 /* BaluchonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29883B82534B90E005A52D8 /* BaluchonNavigationController.swift */; };
 		E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29883BD2534BDF9005A52D8 /* BaluchonTabBarController.swift */; };
@@ -21,6 +25,7 @@
 		E2CC3D2A252B42D000026CED /* Le_BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D29252B42D000026CED /* Le_BaluchonTests.swift */; };
 		E2CC3D35252B42D000026CED /* Le_BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D34252B42D000026CED /* Le_BaluchonUITests.swift */; };
 		E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D45252B43B700026CED /* NetworkManager.swift */; };
+		E2D8D54C2537027000B50A92 /* buttonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D8D54B2537027000B50A92 /* buttonProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E211F49125372B080023BEF0 /* Reglisse.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Reglisse.otf; sourceTree = "<group>"; };
+		E24D834D253DECE30050B940 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguageViewController.swift; path = "Le Baluchon/View/LanguageViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E25113682535CE0300C8A042 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/View/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E251136D2535D79700C8A042 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = "Le Baluchon/View/CityViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dash-Horizon-Demo.otf"; sourceTree = "<group>"; };
 		E29883B82534B90E005A52D8 /* BaluchonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonNavigationController.swift; sourceTree = "<group>"; };
 		E29883BD2534BDF9005A52D8 /* BaluchonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTabBarController.swift; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 		E2CC3D34252B42D000026CED /* Le_BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITests.swift; sourceTree = "<group>"; };
 		E2CC3D36252B42D000026CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2CC3D45252B43B700026CED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E2D8D54B2537027000B50A92 /* buttonProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = buttonProperties.swift; path = "Le Baluchon/View/buttonProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +101,7 @@
 		E20731A72534AB4700CEE4DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2D8D54B2537027000B50A92 /* buttonProperties.swift */,
 				E2CC3D45252B43B700026CED /* NetworkManager.swift */,
 			);
 			path = Model;
@@ -108,6 +119,9 @@
 		E20731A92534AB6900CEE4DB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E24D834D253DECE30050B940 /* LanguageViewController.swift */,
+				E251136D2535D79700C8A042 /* CityViewController.swift */,
+				E25113682535CE0300C8A042 /* TranslateViewController.swift */,
 				E29883C22534C02D005A52D8 /* WeatherViewController.swift */,
 				E2CC3D16252B42CD00026CED /* CurrencyViewController.swift */,
 				E29883BD2534BDF9005A52D8 /* BaluchonTabBarController.swift */,
@@ -145,6 +159,7 @@
 				E2CC3D1B252B42D000026CED /* Assets.xcassets */,
 				E2CC3D20252B42D000026CED /* Info.plist */,
 				E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */,
+				E211F49125372B080023BEF0 /* Reglisse.otf */,
 				E20731A92534AB6900CEE4DB /* Controller */,
 				E20731A82534AB5300CEE4DB /* View */,
 				E20731A72534AB4700CEE4DB /* Model */,
@@ -273,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E211F49225372B080023BEF0 /* Reglisse.otf in Resources */,
 				E29883B42534B02A005A52D8 /* Dash-Horizon-Demo.otf in Resources */,
 				E2CC3D1F252B42D000026CED /* LaunchScreen.storyboard in Resources */,
 				E2CC3D1C252B42D000026CED /* Assets.xcassets in Resources */,
@@ -301,11 +317,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D8D54C2537027000B50A92 /* buttonProperties.swift in Sources */,
+				E251136E2535D79700C8A042 /* CityViewController.swift in Sources */,
+				E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */,
 				E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */,
 				E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */,
 				E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */,
 				E2CC3D13252B42CD00026CED /* AppDelegate.swift in Sources */,
 				E29883C32534C02D005A52D8 /* WeatherViewController.swift in Sources */,
+				E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */,
 				E29883CB2534C398005A52D8 /* BaseViewController.swift in Sources */,
 				E29883B92534B90E005A52D8 /* BaluchonNavigationController.swift in Sources */,
 				E2CC3D15252B42CD00026CED /* SceneDelegate.swift in Sources */,

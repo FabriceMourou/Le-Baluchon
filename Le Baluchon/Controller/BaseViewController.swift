@@ -12,6 +12,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         
         let closingKeyboardGestureRecogniyer = UITapGestureRecognizer(
             target: self,

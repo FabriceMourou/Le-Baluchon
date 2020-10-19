@@ -18,7 +18,8 @@ class BaluchonTabBarController: UITabBarController {
     
     private let tabBarTitles: [String] = [
         "Currency",
-        "Weather"
+        "Weather",
+        "Translate"
     ]
     
     

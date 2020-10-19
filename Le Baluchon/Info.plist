@@ -64,6 +64,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Reglisse.otf</string>
 		<string>Dash-Horizon-Demo.otf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
