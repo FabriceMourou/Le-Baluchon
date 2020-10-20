@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E211F49225372B080023BEF0 /* Reglisse.otf in Resources */ = {isa = PBXBuildFile; fileRef = E211F49125372B080023BEF0 /* Reglisse.otf */; };
+		E230AD00253F470D00F514B3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E230ACFF253F470D00F514B3 /* Currency.swift */; };
 		E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D834D253DECE30050B940 /* LanguageViewController.swift */; };
 		E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25113682535CE0300C8A042 /* TranslateViewController.swift */; };
 		E251136E2535D79700C8A042 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251136D2535D79700C8A042 /* CityViewController.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		E211F49125372B080023BEF0 /* Reglisse.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Reglisse.otf; sourceTree = "<group>"; };
+		E230ACFF253F470D00F514B3 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		E24D834D253DECE30050B940 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguageViewController.swift; path = "Le Baluchon/View/LanguageViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E25113682535CE0300C8A042 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/View/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E251136D2535D79700C8A042 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = "Le Baluchon/View/CityViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -103,6 +105,7 @@
 			children = (
 				E2D8D54B2537027000B50A92 /* buttonProperties.swift */,
 				E2CC3D45252B43B700026CED /* NetworkManager.swift */,
+				E230ACFF253F470D00F514B3 /* Currency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */,
 				E2CC3D13252B42CD00026CED /* AppDelegate.swift in Sources */,
 				E29883C32534C02D005A52D8 /* WeatherViewController.swift in Sources */,
+				E230AD00253F470D00F514B3 /* Currency.swift in Sources */,
 				E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */,
 				E29883CB2534C398005A52D8 /* BaseViewController.swift in Sources */,
 				E29883B92534B90E005A52D8 /* BaluchonNavigationController.swift in Sources */,
