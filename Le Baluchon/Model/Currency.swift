@@ -1,12 +1,8 @@
-//
-//  Currency.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 20/10/2020.
-//
-
 import Foundation
 
+// MARK: - Internal
+
+// MARK: Properties - Internal
 
 enum Currency {
     case dollar, euro
@@ -26,3 +22,8 @@ enum Currency {
         }
     }
 }
+
+
+
+
+

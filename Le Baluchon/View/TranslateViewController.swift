@@ -1,37 +1,43 @@
-//
-//  TranslateViewController.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 13/10/2020.
-//
-
 import UIKit
 
 class TranslateViewController: BaseViewController{
     
+    // MARK: - Internal
     
+    // MARK: Properties - Internal
     
-    @IBOutlet weak var topTextView: UITextView!
-    @IBOutlet weak var bottomTextView: UITextView!
-    @IBOutlet weak var bottomButton: UIButton!
-    @IBOutlet weak var topButton: UIButton!
-
+    // MARK: Methods - Internal
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Translate"
-        makeroundedCorners()
+        
+        roundTextViews()
+        roundButtons()
     }
     
-    private func makeroundedCorners() {
+    // MARK: - Private
+    
+    // MARK: Properties - Private
+    
+    @IBOutlet private weak var topTextView: UITextView!
+    @IBOutlet private weak var bottomTextView: UITextView!
+    @IBOutlet private weak var bottomButton: UIButton!
+    @IBOutlet private weak var topButton: UIButton!
+    @IBOutlet private weak var playButton: UIButton!
+    
+    // MARK: Methods - Private
+    
+    private func roundTextViews() {
         topTextView.layer.cornerRadius = 10
-        topButton.layer.cornerRadius = 15
-        
         bottomTextView.layer.cornerRadius = 10
+    }
+    
+    private func roundButtons() {
+        topButton.layer.cornerRadius = 15
         bottomButton.layer.cornerRadius = 15
-        
-        
+        playButton.layer.cornerRadius = 20
     }
     
 }

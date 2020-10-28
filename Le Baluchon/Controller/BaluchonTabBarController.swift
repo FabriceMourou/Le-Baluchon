@@ -1,20 +1,23 @@
-//
-//  BaluchonTabBarController.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 12/10/2020.
-//
-
 import UIKit
 
 class BaluchonTabBarController: UITabBarController {
-
+    
+    // MARK: - Internal
+    
+    // MARK: Properties - Internal
+    
+    // MARK: Methods - Internal
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTabBarItens()
-       
+        
     }
+    
+    // MARK: - Private
+    
+    // MARK: Properties - Private
     
     private let tabBarTitles: [String] = [
         "Currency",
@@ -22,6 +25,7 @@ class BaluchonTabBarController: UITabBarController {
         "Translate"
     ]
     
+    // MARK: Methods - Private
     
     private func setupTabBarItens() {
         
@@ -37,8 +41,8 @@ class BaluchonTabBarController: UITabBarController {
         for (index, iten) in itens.enumerated() where index < tabBarTitles.count {
             iten.title = tabBarTitles[index]
         }
-
+        
     }
-
-
+    
+    
 }

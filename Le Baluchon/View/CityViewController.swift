@@ -3,50 +3,48 @@ import UIKit
 
 class CityViewController: BaseViewController {
     
-
+    // MARK: - Internal
     
+    // MARK: Properties - Internal
+    
+    
+    var weatherResponse: WeatherResponse?
+    var main: Main?
+    var weather: Weather?
+    var clouds: Clouds?
+    var sys: Sys?
+    
+    
+    // MARK: Methods - Internal
+    
+    
+    /// ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        cityLabel.text = weatherResponse?.name
+        weatherLabel.text = sys?.country
+        
+        
     }
     
+    // MARK: - Private
     
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var weatherLabel: UILabel!
-    @IBOutlet weak var weatherImage: UIImageView!
-    @IBOutlet weak var hightLowLabel: UILabel!
+    // MARK: Properties - Private
     
+    @IBOutlet private weak var cityLabel: UILabel!
+    @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var weatherLabel: UILabel!
+    @IBOutlet private weak var weatherImage: UIImageView!
+    @IBOutlet private weak var hightLowLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
     
-    private let networkManager = NetworkManager()
+    // MARK: Methods - Private
     
-//    private func getCurrencyData() {
-//        networkManager.fetch(url: URL(string: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=022b0764cc4f75219db52fb5bb71cd2b")!) { (result: Result<MeteoResponse, NetworkManagerError>) in
-//
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let response):
-//                    print("Success")
-//
-//                    let cityName = response.city["name"]!
-//
-//                    print(cityName)
-//
-//                    self.cityLabel.text = cityName.description
-//                case .failure:
-//                    print("failure")
-//                }
-//            }
-//
-//        }
-//    }
-    
-    
-    @IBAction func dismiss() {
+    @IBAction private func dismiss() {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
+   
 }

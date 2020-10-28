@@ -1,19 +1,15 @@
-//
-//  BaseViewController.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 12/10/2020.
-//
-
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
+    // MARK: - Internal
+    
+    // MARK: Properties - Internal
+    
+    // MARK: Methods - Internal
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
         
         let closingKeyboardGestureRecogniyer = UITapGestureRecognizer(
             target: self,
@@ -24,11 +20,15 @@ class BaseViewController: UIViewController {
         
     }
     
+    // MARK: - Private
     
+    // MARK: Properties - Private
+    
+    // MARK: Methods - Private
     
     @objc private func closeKeyboard() {
         view.endEditing(true)
     }
-
-
+    
+    
 }

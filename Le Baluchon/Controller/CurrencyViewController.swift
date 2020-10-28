@@ -1,19 +1,12 @@
-//
-//  ViewController.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 05/10/2020.
-//
-
 import UIKit
 
 class CurrencyViewController: BaseViewController {
     
-    @IBOutlet private weak var convertButton: UIButton!
-    @IBOutlet private weak var valueToConvertTextField: UITextField!
-    @IBOutlet private weak var convertedValueLabel: UILabel!
-    @IBOutlet private weak var sourceCurrencySymbolLabel: UILabel!
-    @IBOutlet private weak var targetCurrencySymbolLabel: UILabel!
+    // MARK: - Internal
+    
+    // MARK: Properties - Internal
+    
+    // MARK: Methods - Internal
     
     @IBAction func didTapSwapCurrenciesButton() {
         swap(&sourceCurrency, &targetCurrency)
@@ -28,27 +21,57 @@ class CurrencyViewController: BaseViewController {
     }
     
     
+    /// ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Currency"
         
+        roundConvertButton()
+        roundSwapCurrenciesButton()
+        roundCurrencySymbolLabels()
+    }
+    
+    
+    
+    // MARK: - Private
+    
+    // MARK: Properties - Private
+    
+    @IBOutlet private weak var convertButton: UIButton!
+    @IBOutlet private weak var valueToConvertTextField: UITextField!
+    @IBOutlet private weak var convertedValueLabel: UILabel!
+    @IBOutlet private weak var sourceCurrencySymbolLabel: UILabel!
+    @IBOutlet private weak var targetCurrencySymbolLabel: UILabel!
+    @IBOutlet private weak var swapCurrenciesButton: UIButton!
+    
+    
+    
+    // MARK: Methods - Private
+    
+    private func roundConvertButton () {
         convertButton.layer.cornerRadius = 50
         convertButton.layer.borderColor = UIColor.yellow.cgColor
         convertButton.layer.borderWidth = 2
-        
+    }
+    
+    private func roundSwapCurrenciesButton () {
+        swapCurrenciesButton.layer.cornerRadius = 20
+        swapCurrenciesButton.layer.borderColor = UIColor.yellow.cgColor
+        swapCurrenciesButton.layer.borderWidth = 2
+    }
+    
+    private func roundCurrencySymbolLabels () {
         for index in 0..<currencySymbolLabels.count {
             
             let currencyLabel = currencySymbolLabels[index]
-
+            
             currencyLabel.layer.cornerRadius = 20
             currencyLabel.layer.borderWidth = 2
             currencyLabel.layer.borderColor = UIColor.yellow.cgColor
             
         }
     }
-    
-    
     
     private var currencySymbolLabels: [UILabel] {
         [
@@ -61,8 +84,8 @@ class CurrencyViewController: BaseViewController {
         guard let textValue = valueToConvertTextField.text else { return nil }
         return Double(textValue)
     }
-
-
+    
+    
     private var sourceCurrency: Currency = .euro {
         didSet {
             sourceCurrencySymbolLabel.text = sourceCurrency.symbol
@@ -75,14 +98,14 @@ class CurrencyViewController: BaseViewController {
         }
     }
     
-  
+    
     private let networkManager = NetworkManager()
     
-    private func convertValueWithRate(value: Double, sourceCurrency: Currency, targetCurrency: Currency) {
+    private func convertValueWithRate(value: Double, sourceCurrency: Currency, targetCurrency: Currency)  {
         
         
         guard let url = getConvertValueWithRateURL() else {
-            print("Could not create URL for currencz conversion")
+            print("Could not create URL for currency conversion")
             return
         }
         

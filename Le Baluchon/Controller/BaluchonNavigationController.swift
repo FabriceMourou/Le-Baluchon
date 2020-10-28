@@ -1,32 +1,38 @@
-//
-//  BaluchonNavigationController.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 12/10/2020.
-//
-
 import UIKit
 
 
 class BaluchonNavigationController: UINavigationController {
     
+    // MARK: - Internal
+    
+    // MARK: Properties - Internal
+    
+    // MARK: Methods - Internal
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBar.prefersLargeTitles = true
-    
+        
         let textAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
-
+        
         setFont()
-
+        
         
         navigationBar.largeTitleTextAttributes = textAttributes
     }
     
-    func setFont()
-        {
+    // MARK: - Private
+    
+    // MARK: Properties - Private
+    
+    // MARK: Methods - Private
+    
+    
+    private func setFont()
+    {
         self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Avenir", size: 20)!]
     }
 }
