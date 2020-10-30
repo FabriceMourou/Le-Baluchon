@@ -66,6 +66,7 @@
 	<array>
 		<string>Reglisse.otf</string>
 		<string>Dash-Horizon-Demo.otf</string>
+		<string>Bittermilk.ttf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
