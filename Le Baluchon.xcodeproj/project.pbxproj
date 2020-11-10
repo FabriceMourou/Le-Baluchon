@@ -15,7 +15,6 @@
 		E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25113682535CE0300C8A042 /* TranslateViewController.swift */; };
 		E251136E2535D79700C8A042 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251136D2535D79700C8A042 /* CityViewController.swift */; };
 		E2609AC925597AED00462E70 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609AC825597AED00462E70 /* Languages.swift */; };
-		E2609ACE2559AEAC00462E70 /* TranslatedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2609ACD2559AEAC00462E70 /* TranslatedLanguage.swift */; };
 		E278C60225488D770012821A /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60125488D770012821A /* CurrencyResponse.swift */; };
 		E278C60725488D960012821A /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60625488D960012821A /* WeatherResponse.swift */; };
 		E29883B42534B02A005A52D8 /* Dash-Horizon-Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */; };
@@ -62,7 +61,6 @@
 		E25113682535CE0300C8A042 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/View/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E251136D2535D79700C8A042 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = "Le Baluchon/View/CityViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E2609AC825597AED00462E70 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = SOURCE_ROOT; };
-		E2609ACD2559AEAC00462E70 /* TranslatedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedLanguage.swift; sourceTree = "<group>"; };
 		E278C60125488D770012821A /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
 		E278C60625488D960012821A /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dash-Horizon-Demo.otf"; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				E2300B8E2552AFDD00BBB843 /* TranslateResponse.swift */,
 				E2CC3D45252B43B700026CED /* NetworkManager.swift */,
 				E230ACFF253F470D00F514B3 /* Currency.swift */,
-				E2609ACD2559AEAC00462E70 /* TranslatedLanguage.swift */,
 				E278C60125488D770012821A /* CurrencyResponse.swift */,
 				E278C60625488D960012821A /* WeatherResponse.swift */,
 			);
@@ -352,7 +349,6 @@
 				E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */,
 				E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */,
 				E2CC3D13252B42CD00026CED /* AppDelegate.swift in Sources */,
-				E2609ACE2559AEAC00462E70 /* TranslatedLanguage.swift in Sources */,
 				E29883C32534C02D005A52D8 /* WeatherViewController.swift in Sources */,
 				E230AD00253F470D00F514B3 /* Currency.swift in Sources */,
 				E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */,
