@@ -9,7 +9,7 @@ class CityViewController: BaseViewController {
     
     
     var weatherResponse: WeatherResponse?
-    var weather: Weather?
+    
     
     // MARK: Methods - Internal
     
@@ -18,40 +18,23 @@ class CityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let unformattedMainTemperature = weatherResponse?.main?.temp else { return }
-        temperatureLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedMainTemperature)
         
-        guard let unformattedFeelsLikeTemperature = weatherResponse?.main?.feelsLike else { return }
-        feelsLikeLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedFeelsLikeTemperature)
-            
-        guard let unformattedHightTemperature = weatherResponse?.main?.tempMax else { return }
-        hightTemperatureLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedHightTemperature)
-        
-        guard let unformattedLowTemperature = weatherResponse?.main?.tempMin else { return }
-        lowTemperatureLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedLowTemperature)
-        
-        guard let unformattedCloudinessPercentage = weatherResponse?.clouds?.all else { return}
-        percentageCloudinessLabel.text = weatherValuesFormatter.getFormattedPercentage(from: Double(unformattedCloudinessPercentage))
-        
-        guard let unformattedHumidityPercentage = weatherResponse?.main?.humidity else { return}
-        percentageHumidityLabel.text = weatherValuesFormatter.getFormattedPercentage(from: Double(unformattedHumidityPercentage))
-        
-        cityLabel.text = weatherResponse?.name
-        countryLabel.text = weatherResponse?.sys?.country
-        longitudeLabel.text = weatherResponse?.coord?.lon?.description
-        latitudeLabel.text = weatherResponse?.coord?.lat?.description
-        
-      
-           
+        assignTemperatureInformation()
+        assignweatherInformation()
+        assignCityInformation()
+        assignWeatherIconInformation()
         
     }
     
+    
+
     
     // MARK: - Private
     
     // MARK: Properties - Private
     
     private let weatherValuesFormatter = WeatherValuesFormatter()
+    private let networkManager = NetworkManager()
     
     @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var countryLabel: UILabel!
@@ -64,7 +47,7 @@ class CityViewController: BaseViewController {
     @IBOutlet private weak var longitudeLabel: UILabel!
     @IBOutlet private weak var latitudeLabel: UILabel!
     @IBOutlet private weak var weatherIconLabel: UILabel!
-    @IBOutlet private weak var weatherMainLabel: UILabel!
+    @IBOutlet private weak var weatherIconImageView: UIImageView!
     
     
     // MARK: Methods - Private
@@ -73,29 +56,83 @@ class CityViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-   
+    
+    private func presentAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Could not get icon image", preferredStyle: .alert)
+        let okazAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okazAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    private func assignTemperatureInformation() {
+        guard let main = weatherResponse?.main else { return }
+        
+        if let unformattedMainTemperature = main.temp {
+            temperatureLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedMainTemperature)
+        }
+        
+        if let unformattedFeelsLikeTemperature = main.feelsLike {
+            feelsLikeLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedFeelsLikeTemperature)
+        }
+        
+        
+        if let unformattedHightTemperature = main.tempMax {
+            hightTemperatureLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedHightTemperature)
+        }
+        
+        
+        if let unformattedLowTemperature = main.tempMin {
+            lowTemperatureLabel.text = weatherValuesFormatter.getFormattedTemperature(from: unformattedLowTemperature)
+        }
+    }
+    
+    private func assignweatherInformation() {
+        if let unformattedCloudinessPercentage = weatherResponse?.clouds?.all {
+            percentageCloudinessLabel.text = weatherValuesFormatter.getFormattedPercentage(from: Double(unformattedCloudinessPercentage))
+        }
+        
+        if let unformattedHumidityPercentage = weatherResponse?.main?.humidity {
+            percentageHumidityLabel.text = weatherValuesFormatter.getFormattedPercentage(from: Double(unformattedHumidityPercentage))
+        }
+    }
+    
+    private func assignCityInformation() {
+        cityLabel.text = weatherResponse?.name
+        countryLabel.text = weatherResponse?.sys?.country
+        longitudeLabel.text = weatherResponse?.coord?.lon?.description
+        latitudeLabel.text = weatherResponse?.coord?.lat?.description
+    }
+    
+    
+    private func assignWeatherIconInformation() {
+        weatherIconLabel.text = weatherResponse?.weather?.first?.weatherDescription
+        guard
+            let iconId = weatherResponse?.weather?.first?.icon,
+            let iconUrl = URL(string: "http://openweathermap.org/img/wn/\(iconId)@2x.png")
+        else { return }
+        
+        networkManager.fetchData(url: iconUrl) { [weak self] (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let iconImageData):
+                    let iconImage = UIImage(data: iconImageData)
+                    self?.weatherIconImageView.image = iconImage
+                    
+                case .failure(let error):
+                    self?.presentAlert()
+                }
+            }
+            
+        }
+       
+    }
+    
+    
 }
 
 
-class WeatherValuesFormatter {
-    func getFormattedTemperature(from unformattedTemperature: Double) -> String? {
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .none
-        numberFormatter.roundingMode = .halfDown
-        guard let formattedNumber =  numberFormatter.string(from: unformattedTemperature as NSNumber) else { return nil }
-        
-        return formattedNumber +  "°c"
-    
-    }
-    
-    func getFormattedPercentage(from unformattedPercentage: Double) -> String? {
-        let percentageFormatter = NumberFormatter()
-        guard let formattedPercentage = percentageFormatter.string(from: unformattedPercentage as NSNumber) else { return nil }
-        return formattedPercentage +  "%"
-    }
-    
- 
 
-}
 

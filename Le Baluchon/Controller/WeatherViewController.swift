@@ -15,14 +15,13 @@ class WeatherViewController: BaseViewController {
             return
         }
         
-        displaysWeatherDataFromCity(cityName: cityName)
+        displaysWeatherDataFromCity(cityName: cityName, isCustomCity: true)
+        
     }
     
     @IBAction func tapNewyorkButton() {
-        guard let newyork = newyorkCityInput else {
-            return
-        }
-        displaysWeatherDataFromCity(cityName: newyork)
+
+        displaysWeatherDataFromCity(cityName: "new york", isCustomCity: false)
     }
     
     /// ViewLifeCycle
@@ -55,18 +54,13 @@ class WeatherViewController: BaseViewController {
         return String(textValue)
     }
     
-    private var newyorkCityInput: String? {
-        guard let newyork = newyorkLabel.text else { return nil }
-        return String(newyork)
-    }
-    
    
     
     // MARK: Methods - Private
     
     private let networkManager = NetworkManager()
     
-    private func displaysWeatherDataFromCity(cityName: String) {
+    private func displaysWeatherDataFromCity(cityName: String, isCustomCity: Bool) {
         
         guard let url = getWeatherValuesURL(cityName: cityName) else {
             print("Could not create URL for weather informations")
@@ -78,8 +72,12 @@ class WeatherViewController: BaseViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    self.customCitySearchTextField.text = response.name
-                    self.newyorkLabel.text = response.name
+                    if isCustomCity {
+                        self.customCitySearchTextField.text = response.name
+                    } else {
+                        self.newyorkLabel.text = response.name
+                    }
+                    
                     self.weatherResponse = response
                     self.performSegue(withIdentifier: "GoToCityWeatherDetailsSegue", sender: nil)
                 case .failure:

@@ -132,6 +132,8 @@ class CurrencyViewController: BaseViewController {
                     print("convertedValue \(convertedValue)")
                     
                     self.convertedValueLabel.text = convertedValue.description
+                    
+                    
                 case .failure:
                     print("failure")
                 }

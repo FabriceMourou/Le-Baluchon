@@ -44,4 +44,31 @@ class NetworkManager {
             
         }.resume()
     }
+    
+    
+
+    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                completion(.failure(.unknownError))
+                return
+            }
+            
+            guard
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200 else {
+                completion(.failure(.badStatusCode))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+        
+            completion(.success(data))
+            
+        }.resume()
+    }
 }
