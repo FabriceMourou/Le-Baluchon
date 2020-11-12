@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 // MARK: - TranslateResponse
 struct TranslateResponse: Codable {
     let data: DataClass?
@@ -15,10 +14,10 @@ struct TranslateResponse: Codable {
 
 // MARK: - DataClass
 struct DataClass: Codable {
-    let languages: [Language]?
+    let translations: [Translation]?
 }
 
-// MARK: - Language
-struct Language: Codable {
-    let language: String?
+// MARK: - Translation
+struct Translation: Codable {
+    let translatedText: String?
 }

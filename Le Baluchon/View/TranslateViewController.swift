@@ -1,6 +1,6 @@
 import UIKit
 
-class TranslateViewController: BaseViewController{
+class TranslateViewController: BaseViewController {
     
     // MARK: - Internal
     
@@ -8,14 +8,9 @@ class TranslateViewController: BaseViewController{
     
     // MARK: Methods - Internal
     
-    @IBAction func tapTranslateButton() {
-        guard let textInput = textInputSearchString else {
-            print("Could not get text from textfield")
-            return
-        }
-        
-        translateText(textToTranslate: textInput)
-        
+    @IBAction private func tapTranslateButton() {
+
+        translateText()
     }
 
     
@@ -23,18 +18,19 @@ class TranslateViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = "Translate"
         
         roundTextViews()
         roundButtons()
+        settingUpToolBar()
     }
     
     // MARK: - Private
     
     // MARK: Properties - Private
     @IBOutlet private weak var topButton: UIButton!
-    @IBOutlet private weak var topTextField: UITextField!
+    @IBOutlet weak var topTextView: UITextView!
+    
     
     @IBOutlet private weak var translateButton: UIButton!
     
@@ -47,7 +43,8 @@ class TranslateViewController: BaseViewController{
     
     
     private func roundTextViews() {
-        bottomTextView.layer.cornerRadius = 5
+        bottomTextView.layer.cornerRadius = 10
+        topTextView.layer.cornerRadius = 10
     }
     
     private func roundButtons() {
@@ -56,10 +53,17 @@ class TranslateViewController: BaseViewController{
         translateButton.layer.cornerRadius = 20
     }
     
-   
+    private func settingUpToolBar() {
+        let bar = UIToolbar()
+        let reset = UIBarButtonItem(title: "Translate", style: .plain, target: self, action: #selector(didTapOnTranslateToolBarButton))
+        bar.items = [.flexibleSpace(), reset]
+        bar.sizeToFit()
+       
+        topTextView.inputAccessoryView = bar
+    }
     
     private var textInputSearchString: String? {
-        guard let textValue = topTextField.text else {
+        guard let textValue = topTextView.text else {
             return nil }
         return String(textValue)
     }
@@ -67,23 +71,33 @@ class TranslateViewController: BaseViewController{
     
     private let networkManager = NetworkManager()
     
-    private func translateText(textToTranslate: String)  {
+    @objc private func didTapOnTranslateToolBarButton() {
+        view.endEditing(true)
+        translateText()
+    }
+    
+    private func translateText() {
+        
+        guard let textInput = textInputSearchString else {
+            print("Could not get text from textfield")
+            return
+        }
         
         
-        guard let url = getTranslateURL(textToTranslate: textToTranslate) else {
+        guard let url = getTranslateURL(textToTranslate: textInput) else {
             print("Could not create URL for translate text")
             return
         }
         
         networkManager.fetch(url: url) { (result:
-            Result<Language, NetworkManagerError>) in
+            Result<TranslateResponse, NetworkManagerError>) in
             
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
                     print("coucou!!!")
                    
-                    self.bottomTextView.text = response.language
+                    self.bottomTextView.text = response.data?.translations?.first?.translatedText
                     
                    
                     
@@ -95,7 +109,6 @@ class TranslateViewController: BaseViewController{
             
         }
     }
-    private var language: Language?
     
     
     private func getTranslateURL(textToTranslate: String) -> URL? {

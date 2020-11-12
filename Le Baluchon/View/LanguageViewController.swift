@@ -12,15 +12,12 @@ class LanguageViewController: UIViewController
     
     // MARK: Methods - Internal
     
-    func selectedLanguage() {
-        let languageIndex = languagePickerView.selectedRow(inComponent: 0)
-        let languageSelected = languagesList[languageIndex]
-    }
+   
     
     /// ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        goButton.layer.cornerRadius = 50
+   
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -39,7 +36,6 @@ class LanguageViewController: UIViewController
     
     // MARK: Properties - Private
     
-    @IBOutlet private weak var goButton: UIButton!
     @IBOutlet private weak var languagePickerView: UIPickerView!
     
     

@@ -30,23 +30,12 @@
                                 <color key="shadowColor" systemColor="systemOrangeColor"/>
                                 <size key="shadowOffset" width="-7" height="5"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenue !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1a-Of-4wg">
-                                <rect key="frame" x="153.5" y="596" width="199" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="MpO-bg-F9Z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="30"/>
-                                <color key="textColor" red="0.090115852604231675" green="0.16041669163473088" blue="0.30274510645604391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YgJ-HH-tNB" secondAttribute="bottom" id="1QR-dT-GNS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z1a-Of-4wg" secondAttribute="bottom" constant="231" id="3lF-rp-AIr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YgJ-HH-tNB" secondAttribute="trailing" id="9jz-NR-3ek"/>
-                            <constraint firstItem="z1a-Of-4wg" firstAttribute="centerX" secondItem="eK4-Ed-m4B" secondAttribute="centerX" id="RGJ-gh-m4G"/>
                             <constraint firstItem="YgJ-HH-tNB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WFe-Cn-fJp"/>
                             <constraint firstItem="eK4-Ed-m4B" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XLJ-x2-KXK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eK4-Ed-m4B" secondAttribute="trailing" constant="20" id="ZA4-Vi-D78"/>
