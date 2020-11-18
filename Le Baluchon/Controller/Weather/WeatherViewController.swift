@@ -18,12 +18,13 @@ class WeatherViewController: BaseViewController {
         }
         
         displaysWeatherDataFromCity(cityName: cityName, isCustomCity: true)
-        
+        cityActivityIndicator.startAnimating()
     }
     
     @IBAction func tapNewyorkButton() {
         
        displaysWeatherDataFromCity(cityName: "new york", isCustomCity: false)
+        newYorkActivityIndicator.startAnimating()
     }
     
     /// ViewLifeCycle
@@ -31,9 +32,11 @@ class WeatherViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Weather"
-        
+        cityActivityIndicator.hidesWhenStopped = true
+        newYorkActivityIndicator.hidesWhenStopped = true
         newyorkButton.layer.cornerRadius = 25
         textFieldButton.layer.cornerRadius = 25
+        
         
        
     }
@@ -47,8 +50,9 @@ class WeatherViewController: BaseViewController {
     @IBOutlet weak var textFieldButton: UIButton!
     @IBOutlet private weak var customCitySearchTextField: UITextField!
     @IBOutlet private weak var newyorkLabel: UILabel!
-    @IBOutlet private weak var newYorkActivityViewController: UIActivityIndicatorView!
-    @IBOutlet private weak var cityActivityViewController: UIActivityIndicatorView!
+    @IBOutlet private weak var cityActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var newYorkActivityIndicator: UIActivityIndicatorView!
+    
     
    
     
@@ -64,8 +68,7 @@ class WeatherViewController: BaseViewController {
     
     private let networkManager = NetworkManager()
     
-//    private let errorManager: ErrorManager?
-//    private let alertManager: AlertManager?
+
     
     private func displaysWeatherDataFromCity(cityName: String, isCustomCity: Bool) {
         
@@ -75,21 +78,25 @@ class WeatherViewController: BaseViewController {
             return
         }
         
-        networkManager.fetch(url: url) { (result: Result<WeatherResponse,  NetworkManagerError>) in
+        networkManager.fetch(url: url) { [weak self](result: Result<WeatherResponse,  NetworkManagerError>) in
             
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
                     if isCustomCity {
-                        self.customCitySearchTextField.text = response.name
+                        self?.customCitySearchTextField.text = response.name
                     } else {
-                        self.newyorkLabel.text = response.name
+                        self?.newyorkLabel.text = response.name
                     }
                     
-                    self.weatherResponse = response
-                    self.performSegue(withIdentifier: "GoToCityWeatherDetailsSegue", sender: nil)
-                case .failure:
-                    print("failure")
+                    self?.weatherResponse = response
+                    self?.performSegue(withIdentifier: "GoToCityWeatherDetailsSegue", sender: nil)
+                    
+                    self?.newYorkActivityIndicator.stopAnimating()
+                    self?.cityActivityIndicator.stopAnimating()
+                    
+                case .failure(let error):
+                    self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
                 }
             }
             
@@ -126,11 +133,7 @@ class WeatherViewController: BaseViewController {
         return urlComponents.url
     }
     
-//    private func handleError(error: Error) {
-//        let viewController = WeatherViewController()
-//        guard let errorManager = error as? ErrorManager else { return }
-//        alertManager?.presentAlert(from: viewController, message: errorManager.errorMessage)
-//        }
+
     
     
     

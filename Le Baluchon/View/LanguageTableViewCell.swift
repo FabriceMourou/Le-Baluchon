@@ -15,7 +15,7 @@ class LanguageTableViewCell: UITableViewCell {
     
 
     
-    func setLanguage(languages: Languages) {
+    func setLanguage(languages: Language) {
         flagImageView.image = languages.image
         languageLabel.text = languages.title
         

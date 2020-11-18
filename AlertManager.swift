@@ -17,8 +17,11 @@ class AlertManager {
                                        handler: nil)
         
         alertController.addAction(okayAction)
+        
         viewController.present(alertController, animated: true, completion: nil)
+        
     }
+    
     
     
 }

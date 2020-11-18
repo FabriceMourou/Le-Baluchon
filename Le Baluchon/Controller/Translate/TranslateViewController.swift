@@ -9,7 +9,6 @@ class TranslateViewController: BaseViewController {
     // MARK: Methods - Internal
     
     @IBAction private func tapTranslateButton() {
-
         translateText()
     }
 
@@ -19,7 +18,7 @@ class TranslateViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Translate"
-        
+        translateActivityIndicator.hidesWhenStopped = true
         roundTextViews()
         roundButtons()
         settingUpToolBar()
@@ -32,10 +31,26 @@ class TranslateViewController: BaseViewController {
     @IBOutlet weak var topTextView: UITextView!
     
     @IBOutlet private weak var translateButton: UIButton!
-    @IBOutlet private weak var translateActivityViewController: UIActivityIndicatorView!
+    @IBOutlet private weak var translateActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet private weak var bottomButton: UIButton!
     @IBOutlet private weak var bottomTextView: UITextView!
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        
+        if let languageViewController = segue.destination as? LanguageViewController {
+            languageViewController.delegate = self
+            
+            languageViewController.languageSelectionType = segue.identifier == "sourceLanguageSegue" ? .source : .target
+
+                
+            
+        }
+    }
     
     
     
@@ -58,7 +73,7 @@ class TranslateViewController: BaseViewController {
         let reset = UIBarButtonItem(title: "Translate", style: .plain, target: self, action: #selector(didTapOnTranslateToolBarButton))
         bar.items = [.flexibleSpace(), reset]
         bar.sizeToFit()
-       
+
         topTextView.inputAccessoryView = bar
     }
     
@@ -76,7 +91,24 @@ class TranslateViewController: BaseViewController {
         translateText()
     }
     
+    
+    
+    private var sourceLanguage: Language = .french {
+        didSet {
+            topButton.setTitle(sourceLanguage.title.uppercased(), for: .normal)
+        }
+    }
+    private var targetLanauge: Language = .english {
+        didSet {
+            bottomButton.setTitle(targetLanauge.title.uppercased(), for: .normal)
+        }
+    }
+    
+    
+    
     private func translateText() {
+        
+        translateActivityIndicator.startAnimating()
         
         guard let textInput = textInputSearchString else {
             print("Could not get text from textfield")
@@ -84,26 +116,31 @@ class TranslateViewController: BaseViewController {
         }
         
         
-        guard let url = getTranslateURL(textToTranslate: textInput) else {
+        guard let url = getTranslateURL(sourceLanguageCode: sourceLanguage.code, targetLanguageCode: targetLanauge.code, textToTranslate: textInput) else {
             print("Could not create URL for translate text")
             return
         }
         
-        networkManager.fetch(url: url) { (result:
+        networkManager.fetch(url: url) { [weak self] (result:
             Result<TranslateResponse, NetworkManagerError>) in
             
+
+            
             DispatchQueue.main.async {
+                self?.translateActivityIndicator.stopAnimating()
+                
                 switch result {
                 case .success(let response):
                     print("coucou!!!")
                    
-                    self.bottomTextView.text = response.data?.translations?.first?.translatedText
+                    self?.bottomTextView.text = response.data?.translations?.first?.translatedText
+                    
                     
                    
                     
                     
-                case .failure:
-                    print("failure")
+                case .failure(let error):
+                    self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
                 }
             }
             
@@ -111,7 +148,7 @@ class TranslateViewController: BaseViewController {
     }
     
     
-    private func getTranslateURL(textToTranslate: String) -> URL? {
+    private func getTranslateURL(sourceLanguageCode: String, targetLanguageCode: String, textToTranslate: String) -> URL? {
         
         var urlComponents = URLComponents()
     
@@ -120,8 +157,8 @@ class TranslateViewController: BaseViewController {
         urlComponents.path = "/language/translate/v2"
         urlComponents.queryItems = [
             .init(name: "q", value: textToTranslate),
-            .init(name: "source", value: "fr"),
-            .init(name: "target", value: "en"),
+            .init(name: "source", value: sourceLanguageCode),
+            .init(name: "target", value: targetLanguageCode),
             .init(name: "format", value: "text"),
             .init(name: "key", value: "AIzaSyDtmMVvnki4g7JWBLlZ7rR2HgqJCsRD534")
         ]
@@ -132,3 +169,22 @@ class TranslateViewController: BaseViewController {
     
     
 }
+
+
+
+extension TranslateViewController: LanguageViewControllerDelegate {
+    func didSelectLanguage(language: Language, languageSelectionType: LanguageSelectionType) {
+        
+        switch languageSelectionType {
+        case .source: sourceLanguage = language
+        case .target: targetLanauge = language
+        }
+        
+    }
+}
+
+enum LanguageSelectionType {
+    case source
+    case target
+}
+

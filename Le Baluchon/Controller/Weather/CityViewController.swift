@@ -118,7 +118,7 @@ class CityViewController: BaseViewController {
                     
                 case .failure(let error):
                     print ("failure")
-                   
+                    self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
                 }
             }
             

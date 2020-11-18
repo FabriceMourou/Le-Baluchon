@@ -6,6 +6,8 @@ class BaseViewController: UIViewController {
     
     // MARK: Properties - Internal
     
+    let alertManager = AlertManager()
+    
     // MARK: Methods - Internal
     
     override func viewDidLoad() {

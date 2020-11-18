@@ -14,6 +14,7 @@
 		E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D834D253DECE30050B940 /* LanguageViewController.swift */; };
 		E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25113682535CE0300C8A042 /* TranslateViewController.swift */; };
 		E251136E2535D79700C8A042 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251136D2535D79700C8A042 /* CityViewController.swift */; };
+		E276C83F256441D500C6C16C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D45713255EB80A00BC3A39 /* Language.swift */; };
 		E278C60225488D770012821A /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60125488D770012821A /* CurrencyResponse.swift */; };
 		E278C60725488D960012821A /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60625488D960012821A /* WeatherResponse.swift */; };
 		E27A7BD32562BB680058A0BC /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A7BD22562BB680058A0BC /* ErrorManager.swift */; };
@@ -33,7 +34,6 @@
 		E2CC3D35252B42D000026CED /* Le_BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D34252B42D000026CED /* Le_BaluchonUITests.swift */; };
 		E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D45252B43B700026CED /* NetworkManager.swift */; };
 		E2D4570F255EB65C00BC3A39 /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D4570E255EB65C00BC3A39 /* LanguageTableViewCell.swift */; };
-		E2D45714255EB80A00BC3A39 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D45713255EB80A00BC3A39 /* Languages.swift */; };
 		E2D8D54C2537027000B50A92 /* ButtonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D8D54B2537027000B50A92 /* ButtonProperties.swift */; };
 		E2ED9ED7255ED9BF0006F39C /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED9ED6255ED9BF0006F39C /* AlertManager.swift */; };
 /* End PBXBuildFile section */
@@ -88,7 +88,7 @@
 		E2CC3D36252B42D000026CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2CC3D45252B43B700026CED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E2D4570E255EB65C00BC3A39 /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
-		E2D45713255EB80A00BC3A39 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Languages.swift; path = "Le Baluchon/View/Languages.swift"; sourceTree = SOURCE_ROOT; };
+		E2D45713255EB80A00BC3A39 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Language.swift; path = "Le Baluchon/View/Language.swift"; sourceTree = SOURCE_ROOT; };
 		E2D8D54B2537027000B50A92 /* ButtonProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonProperties.swift; path = "Le Baluchon/View/ButtonProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E2ED9ED6255ED9BF0006F39C /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -257,7 +257,7 @@
 		E2D456F8255E7E4300BC3A39 /* Translate */ = {
 			isa = PBXGroup;
 			children = (
-				E2D45713255EB80A00BC3A39 /* Languages.swift */,
+				E2D45713255EB80A00BC3A39 /* Language.swift */,
 				E2300B8E2552AFDD00BBB843 /* TranslateResponse.swift */,
 			);
 			path = Translate;
@@ -399,12 +399,12 @@
 				E2300B872552AE7F00BBB843 /* WeatherValuesManager.swift in Sources */,
 				E2300B8F2552AFDD00BBB843 /* TranslateResponse.swift in Sources */,
 				E2D8D54C2537027000B50A92 /* ButtonProperties.swift in Sources */,
+				E276C83F256441D500C6C16C /* Language.swift in Sources */,
 				E2D4570F255EB65C00BC3A39 /* LanguageTableViewCell.swift in Sources */,
 				E278C60725488D960012821A /* WeatherResponse.swift in Sources */,
 				E251136E2535D79700C8A042 /* CityViewController.swift in Sources */,
 				E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */,
 				E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */,
-				E2D45714255EB80A00BC3A39 /* Languages.swift in Sources */,
 				E27A7BD32562BB680058A0BC /* ErrorManager.swift in Sources */,
 				E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */,
 				E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */,

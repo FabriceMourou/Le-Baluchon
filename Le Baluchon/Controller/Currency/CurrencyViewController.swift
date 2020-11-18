@@ -12,21 +12,30 @@ class CurrencyViewController: BaseViewController {
         swap(&sourceCurrency, &targetCurrency)
     }
     
+
+    
     @IBAction func didTapOnConvertButton() {
+        convert()
+    }
+    
+    private func convert() {
         guard let valueToConvert = valueToConvert else {
+            alertManager.presentAlert(from: self, message: "Could not get value to convert")
             print("Could not get value to convert")
             return
         }
+        currencyActivityIndicator.startAnimating()
         convertValueWithRate(value: valueToConvert, sourceCurrency: sourceCurrency, targetCurrency: targetCurrency)
+        
     }
-    
+     
     
     /// ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Currency"
-        
+        currencyActivityIndicator.hidesWhenStopped = true
         roundConvertButton()
         roundSwapCurrenciesButton()
         roundCurrencySymbolLabels()
@@ -44,7 +53,7 @@ class CurrencyViewController: BaseViewController {
     @IBOutlet private weak var sourceCurrencySymbolLabel: UILabel!
     @IBOutlet private weak var targetCurrencySymbolLabel: UILabel!
     @IBOutlet private weak var swapCurrenciesButton: UIButton!
-    @IBOutlet private weak var currencyActivityViewController: UIActivityIndicatorView!
+    @IBOutlet private weak var currencyActivityIndicator: UIActivityIndicatorView!
     
     
     
@@ -102,15 +111,16 @@ class CurrencyViewController: BaseViewController {
     
     private let networkManager = NetworkManager()
     
-    private func convertValueWithRate(value: Double, sourceCurrency: Currency, targetCurrency: Currency)  {
+    private func convertValueWithRate(value: Double, sourceCurrency: Currency, targetCurrency: Currency)   {
         
         
         guard let url = getConvertValueWithRateURL() else {
+            
             print("Could not create URL for currency conversion")
             return
         }
         
-        networkManager.fetch(url: url) { (result: Result<CurrencyResponse, NetworkManagerError>) in
+        networkManager.fetch(url: url) { [weak self] (result: Result<CurrencyResponse, NetworkManagerError>) in
             
             DispatchQueue.main.async {
                 switch result {
@@ -132,16 +142,17 @@ class CurrencyViewController: BaseViewController {
                     print(conversionRate)
                     print("convertedValue \(convertedValue)")
                     
-                    self.convertedValueLabel.text = convertedValue.description
+                    self?.convertedValueLabel.text = convertedValue.description
+                    self?.currencyActivityIndicator.stopAnimating()
                     
-                    
-                case .failure:
-                    print("failure")
+                case .failure(let error):
+                    self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
                 }
             }
             
         }
     }
+   
     
     private func getConvertValueWithRateURL() -> URL? {
         
