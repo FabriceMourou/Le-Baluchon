@@ -11,20 +11,16 @@ class WeatherViewController: BaseViewController {
     
     // MARK: Methods - Internal
     
-    @IBAction func TapCityTextFieldButton() {
-        guard let cityName = cityInputNameSearchString else {
-            print("Could not get city name from textfield")
-            return
-        }
-        
-        displaysWeatherDataFromCity(cityName: cityName, isCustomCity: true)
-        cityActivityIndicator.startAnimating()
+    @IBAction func didTapCityTextFieldButton() {
+        displayCityWeather()
     }
     
-    @IBAction func tapNewyorkButton() {
-        
-       displaysWeatherDataFromCity(cityName: "new york", isCustomCity: false)
+    
+    
+    @IBAction func didTapNewyorkButton() {
         newYorkActivityIndicator.startAnimating()
+        displaysWeatherDataFromCity(cityName: "new york", isCustomCity: false)
+        
     }
     
     /// ViewLifeCycle
@@ -38,7 +34,7 @@ class WeatherViewController: BaseViewController {
         textFieldButton.layer.cornerRadius = 25
         
         
-       
+        
     }
     
     
@@ -54,27 +50,35 @@ class WeatherViewController: BaseViewController {
     @IBOutlet private weak var newYorkActivityIndicator: UIActivityIndicatorView!
     
     
-   
+    
     
     private var cityInputNameSearchString: String? {
-        guard let textValue = customCitySearchTextField.text else {
+        guard let textValue = customCitySearchTextField.text else{
+            
             return nil }
         return String(textValue)
     }
     
-   
+    
     
     // MARK: Methods - Private
     
-    private let networkManager = NetworkManager()
     
-
+    private func displayCityWeather() {
+        guard let cityName = cityInputNameSearchString else {
+            
+            return
+        }
+        cityActivityIndicator.startAnimating()
+        displaysWeatherDataFromCity(cityName: cityName, isCustomCity: true)
+    }
+    
+    
+    private let networkManager = NetworkManager()
     
     private func displaysWeatherDataFromCity(cityName: String, isCustomCity: Bool) {
         
         guard let url = getWeatherValuesURL(cityName: cityName) else {
-            
-            print("Could not create URL for weather informations")
             return
         }
         
@@ -95,16 +99,19 @@ class WeatherViewController: BaseViewController {
                     self?.newYorkActivityIndicator.stopAnimating()
                     self?.cityActivityIndicator.stopAnimating()
                     
-                case .failure(let error):
-                    self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
+                    
+                case .failure( _):
+                    self?.alertManager.presentAlert(from: self!, message: "Could not get weather data informations")
                 }
+                self?.cityActivityIndicator.stopAnimating()
+                self?.newYorkActivityIndicator.stopAnimating()
             }
             
         }
     }
     
     private var weatherResponse: WeatherResponse?
-   
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -112,7 +119,7 @@ class WeatherViewController: BaseViewController {
         
         if let cityViewController = segue.destination as? CityViewController {
             cityViewController.weatherResponse = weatherResponse
-           
+            
         }
     }
     
@@ -133,7 +140,7 @@ class WeatherViewController: BaseViewController {
         return urlComponents.url
     }
     
-
+    
     
     
     

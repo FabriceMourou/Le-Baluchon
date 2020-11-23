@@ -8,10 +8,10 @@ class TranslateViewController: BaseViewController {
     
     // MARK: Methods - Internal
     
-    @IBAction private func tapTranslateButton() {
+    @IBAction private func didTapTranslateButton() {
         translateText()
     }
-
+    
     
     
     
@@ -46,12 +46,11 @@ class TranslateViewController: BaseViewController {
             languageViewController.delegate = self
             
             languageViewController.languageSelectionType = segue.identifier == "sourceLanguageSegue" ? .source : .target
-
-                
+            
+            
             
         }
     }
-    
     
     
     // MARK: Methods - Private
@@ -73,7 +72,7 @@ class TranslateViewController: BaseViewController {
         let reset = UIBarButtonItem(title: "Translate", style: .plain, target: self, action: #selector(didTapOnTranslateToolBarButton))
         bar.items = [.flexibleSpace(), reset]
         bar.sizeToFit()
-
+        
         topTextView.inputAccessoryView = bar
     }
     
@@ -111,7 +110,7 @@ class TranslateViewController: BaseViewController {
         translateActivityIndicator.startAnimating()
         
         guard let textInput = textInputSearchString else {
-            print("Could not get text from textfield")
+            
             return
         }
         
@@ -121,26 +120,18 @@ class TranslateViewController: BaseViewController {
             return
         }
         
-        networkManager.fetch(url: url) { [weak self] (result:
-            Result<TranslateResponse, NetworkManagerError>) in
-            
-
-            
+        networkManager.fetch(url: url) { [weak self] (result: Result<TranslateResponse, NetworkManagerError>) in
             DispatchQueue.main.async {
                 self?.translateActivityIndicator.stopAnimating()
                 
                 switch result {
                 case .success(let response):
-                    print("coucou!!!")
-                   
+                    
                     self?.bottomTextView.text = response.data?.translations?.first?.translatedText
                     
                     
-                   
-                    
-                    
-                case .failure(let error):
-                    self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
+                case .failure( _):
+                    self?.alertManager.presentAlert(from: self!, message: "Could not get data for translate text")
                 }
             }
             
@@ -151,7 +142,7 @@ class TranslateViewController: BaseViewController {
     private func getTranslateURL(sourceLanguageCode: String, targetLanguageCode: String, textToTranslate: String) -> URL? {
         
         var urlComponents = URLComponents()
-    
+        
         urlComponents.scheme = "https"
         urlComponents.host = "translation.googleapis.com"
         urlComponents.path = "/language/translate/v2"

@@ -56,7 +56,7 @@ class NetworkManager {
     }
     
     
-
+    
     func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
@@ -76,7 +76,7 @@ class NetworkManager {
                 return
             }
             
-        
+            
             completion(.success(data))
             
         }.resume()

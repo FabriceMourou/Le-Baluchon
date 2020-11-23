@@ -190,7 +190,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="black"/>
                                 </state>
                                 <connections>
-                                    <action selector="TapCityTextFieldButton" destination="bAt-Hc-gqp" eventType="touchUpInside" id="BNR-xz-3O2"/>
+                                    <action selector="didTapCityTextFieldButton" destination="bAt-Hc-gqp" eventType="touchUpInside" id="BNR-xz-3O2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-Cb-VWy">
@@ -206,7 +206,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="black"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapNewyorkButton" destination="bAt-Hc-gqp" eventType="touchUpInside" id="QaI-6Q-i1D"/>
+                                    <action selector="didTapNewyorkButton" destination="bAt-Hc-gqp" eventType="touchUpInside" id="QaI-6Q-i1D"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7uO-mY-eeS">
@@ -633,7 +633,7 @@
                                     <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapTranslateButton" destination="cwZ-LT-uSh" eventType="touchUpInside" id="kzr-e8-M4W"/>
+                                    <action selector="didTapTranslateButton" destination="cwZ-LT-uSh" eventType="touchUpInside" id="kzr-e8-M4W"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="0Ea-iv-vNO">

@@ -39,8 +39,8 @@ enum Language: CaseIterable {
         case .english: return "en"
         case .french: return "fr"
         case .german: return "de"
-        case .portuguese: return "pg"
-        case .spanish: return "sp"
+        case .portuguese: return "pt"
+        case .spanish: return "es"
         }
     }
 }

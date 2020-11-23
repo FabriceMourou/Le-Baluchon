@@ -18,16 +18,7 @@ class CurrencyViewController: BaseViewController {
         convert()
     }
     
-    private func convert() {
-        guard let valueToConvert = valueToConvert else {
-            alertManager.presentAlert(from: self, message: "Could not get value to convert")
-            print("Could not get value to convert")
-            return
-        }
-        currencyActivityIndicator.startAnimating()
-        convertValueWithRate(value: valueToConvert, sourceCurrency: sourceCurrency, targetCurrency: targetCurrency)
-        
-    }
+    
      
     
     /// ViewLifeCycle
@@ -83,6 +74,16 @@ class CurrencyViewController: BaseViewController {
         }
     }
     
+    private func convert() {
+        guard let valueToConvert = valueToConvert else {
+            alertManager.presentAlert(from: self, message: "Could not get value to convert")
+            return
+        }
+        currencyActivityIndicator.startAnimating()
+        convertValueWithRate(value: valueToConvert, sourceCurrency: sourceCurrency, targetCurrency: targetCurrency)
+        
+    }
+    
     private var currencySymbolLabels: [UILabel] {
         [
             sourceCurrencySymbolLabel,
@@ -134,25 +135,37 @@ class CurrencyViewController: BaseViewController {
                         print("could not get rates for conversion")
                         return
                     }
-                    
+                  
                     let conversionRate = targetRate / sourceRate
-                    
                     let convertedValue = conversionRate * value
                     
-                    print(conversionRate)
-                    print("convertedValue \(convertedValue)")
+                    let finalResult = convertedValue as NSNumber
                     
-                    self?.convertedValueLabel.text = convertedValue.description
-                    self?.currencyActivityIndicator.stopAnimating()
+                   let formattedValue = NumberFormatter()
+                    
+                    formattedValue.usesGroupingSeparator = true
+                    formattedValue.groupingSeparator = " "
+                    formattedValue.groupingSize = 3
+                    formattedValue.numberStyle = .decimal
+                    formattedValue.minimumFractionDigits = 2
+                    formattedValue.maximumFractionDigits = 2
+                    
+                    let formattedResult = formattedValue.string(from: finalResult)
+                    
+                    
+                    self?.convertedValueLabel.text = formattedResult?.description
+                    
+                  
                     
                 case .failure(let error):
                     self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
                 }
+                self?.currencyActivityIndicator.stopAnimating()
             }
             
         }
     }
-   
+    
     
     private func getConvertValueWithRateURL() -> URL? {
         

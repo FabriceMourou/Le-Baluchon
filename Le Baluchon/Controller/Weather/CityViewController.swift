@@ -9,7 +9,7 @@ class CityViewController: BaseViewController {
     
     
     var weatherResponse: WeatherResponse?
-   
+    
     
     // MARK: Methods - Internal
     
@@ -127,12 +127,12 @@ class CityViewController: BaseViewController {
     }
     
     
-        
-       
-        
-    }
     
     
+    
+}
+
+
 
 
 

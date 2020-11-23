@@ -22,15 +22,11 @@ class LanguageViewController: UIViewController {
     
     
     // MARK: Methods - Internal
-    
+  
     
     // MARK: - Private
     
     // MARK: Properties - Private
-    
-    
-    
-    
     
     @IBAction private func dismiss() {
         dismiss(animated: true, completion: nil)
@@ -39,6 +35,8 @@ class LanguageViewController: UIViewController {
     
     
 }
+
+
 
 extension LanguageViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,9 +54,6 @@ extension LanguageViewController: UITableViewDataSource  {
     }
     
     
-    
-    
-    
 }
 
 
@@ -69,6 +64,8 @@ extension LanguageViewController: UITableViewDelegate {
         delegate?.didSelectLanguage(language: selectedLanguage, languageSelectionType: languageSelectionType)
         dismiss(animated: true, completion: nil)
     }
+    
+    
 }
 
 
