@@ -56,12 +56,7 @@ class CityViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    
-    
-    
-    
+
     private func assignTemperatureInformation() {
         guard let main = weatherResponse?.main else { return }
         
@@ -117,7 +112,6 @@ class CityViewController: BaseViewController {
                     self?.weatherIconImageView.image = iconImage
                     
                 case .failure(let error):
-                    print ("failure")
                     self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
                 }
             }

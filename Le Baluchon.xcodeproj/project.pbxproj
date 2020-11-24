@@ -15,6 +15,7 @@
 		E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25113682535CE0300C8A042 /* TranslateViewController.swift */; };
 		E251136E2535D79700C8A042 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251136D2535D79700C8A042 /* CityViewController.swift */; };
 		E27652E1256BF00E00595F70 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27652E0256BF00E00595F70 /* CurrencyManager.swift */; };
+		E27652E9256D81BF00595F70 /* CurrencyManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */; };
 		E276C83F256441D500C6C16C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D45713255EB80A00BC3A39 /* Language.swift */; };
 		E278C60225488D770012821A /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60125488D770012821A /* CurrencyResponse.swift */; };
 		E278C60725488D960012821A /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60625488D960012821A /* WeatherResponse.swift */; };
@@ -64,6 +65,7 @@
 		E25113682535CE0300C8A042 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/Controller/Translate/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E251136D2535D79700C8A042 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = "Le Baluchon/Controller/Weather/CityViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E27652E0256BF00E00595F70 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyManager.swift; path = "Le Baluchon/Controller/Currency/CurrencyManager.swift"; sourceTree = SOURCE_ROOT; };
+		E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManagerTests.swift; sourceTree = "<group>"; };
 		E278C60125488D770012821A /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
 		E278C60625488D960012821A /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dash-Horizon-Demo.otf"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				E2CC3D29252B42D000026CED /* WeatherValuesFormatterTests.swift */,
 				E2CC3D2B252B42D000026CED /* Info.plist */,
+				E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */,
 			);
 			path = "Le BaluchonTests";
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27652E9256D81BF00595F70 /* CurrencyManagerTests.swift in Sources */,
 				E2CC3D2A252B42D000026CED /* WeatherValuesFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4GMB4889M;
 				INFOPLIST_FILE = "Le Baluchon/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -614,6 +619,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4GMB4889M;
 				INFOPLIST_FILE = "Le Baluchon/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

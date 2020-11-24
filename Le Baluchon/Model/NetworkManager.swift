@@ -23,7 +23,38 @@ enum NetworkManagerError: LocalizedError {
 // MARK: Methods - Internal
 
 
-class NetworkManager {
+protocol NetworkManagerProtocol {
+    func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void)
+    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void)
+}
+
+class AlwaysFailNetworkManagerMock: NetworkManagerProtocol {
+    func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
+        completion(.failure(.badStatusCode))
+    }
+    
+    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
+        completion(.failure(.failedToDecodeJson))
+    }
+    
+    
+}
+
+class CurrencySuccessNetworkManagerMock: NetworkManagerProtocol {
+    func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
+        let currencyResponse = CurrencyResponse(success: true, timestamp: 10, base: "euro", date: "10/04/22", rates: ["EUR":10, "USD": 15])
+        completion(.success(currencyResponse as! T))
+    }
+    
+    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
+        completion(.failure(.failedToDecodeJson))
+    }
+    
+    
+}
+
+
+class NetworkManager: NetworkManagerProtocol {
     
     func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in

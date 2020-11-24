@@ -40,11 +40,11 @@ class CurrencyViewController: BaseViewController {
     
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var valueToConvertTextField: UITextField!
-    @IBOutlet private weak var convertedValueLabel: UILabel!
+    @IBOutlet weak var convertedValueLabel: UILabel!
     @IBOutlet private weak var sourceCurrencySymbolLabel: UILabel!
     @IBOutlet private weak var targetCurrencySymbolLabel: UILabel!
     @IBOutlet private weak var swapCurrenciesButton: UIButton!
-    @IBOutlet private weak var currencyActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var currencyActivityIndicator: UIActivityIndicatorView!
     
     
     
@@ -74,15 +74,7 @@ class CurrencyViewController: BaseViewController {
         }
     }
     
-    private func convert() {
-        guard let valueToConvert = valueToConvert else {
-            alertManager.presentAlert(from: self, message: "Could not get value to convert")
-            return
-        }
-        currencyActivityIndicator.startAnimating()
-        convertValueWithRate(value: valueToConvert, sourceCurrency: sourceCurrency, targetCurrency: targetCurrency)
-        
-    }
+    
     
     private var currencySymbolLabels: [UILabel] {
         [
@@ -109,77 +101,32 @@ class CurrencyViewController: BaseViewController {
         }
     }
     
+    private let currencyManager = CurrencyManager()
     
-    private let networkManager = NetworkManager()
-    
-    private func convertValueWithRate(value: Double, sourceCurrency: Currency, targetCurrency: Currency)   {
-        
-        
-        guard let url = getConvertValueWithRateURL() else {
-            
-            print("Could not create URL for currency conversion")
+    private func convert() {
+        guard let valueToConvert = valueToConvert else {
+            alertManager.presentAlert(from: self, message: "Could not get value to convert")
             return
         }
-        
-        networkManager.fetch(url: url) { [weak self] (result: Result<CurrencyResponse, NetworkManagerError>) in
-            
+        currencyActivityIndicator.startAnimating()
+        currencyManager.convertValueWithRate(value: valueToConvert, sourceCurrency: sourceCurrency, targetCurrency: targetCurrency) { [weak self] result in
             DispatchQueue.main.async {
+                self?.currencyActivityIndicator.stopAnimating()
+                
                 switch result {
-                case .success(let response):
-                    print("Success")
-                    
-                    guard
-                        let sourceRate = response.rates[sourceCurrency.code],
-                        let targetRate = response.rates[targetCurrency.code]
-                    else {
-                        print("could not get rates for conversion")
-                        return
-                    }
-                  
-                    let conversionRate = targetRate / sourceRate
-                    let convertedValue = conversionRate * value
-                    
-                    let finalResult = convertedValue as NSNumber
-                    
-                   let formattedValue = NumberFormatter()
-                    
-                    formattedValue.usesGroupingSeparator = true
-                    formattedValue.groupingSeparator = " "
-                    formattedValue.groupingSize = 3
-                    formattedValue.numberStyle = .decimal
-                    formattedValue.minimumFractionDigits = 2
-                    formattedValue.maximumFractionDigits = 2
-                    
-                    let formattedResult = formattedValue.string(from: finalResult)
-                    
-                    
-                    self?.convertedValueLabel.text = formattedResult?.description
-                    
-                  
-                    
                 case .failure(let error):
                     self?.alertManager.presentAlert(from: self!, message: error.localizedDescription)
+                case .success(let convertedValue):
+                    self?.convertedValueLabel.text = convertedValue
                 }
-                self?.currencyActivityIndicator.stopAnimating()
             }
             
         }
+        
     }
     
     
-    private func getConvertValueWithRateURL() -> URL? {
-        
-        var urlComponents = URLComponents()
-        
-        urlComponents.scheme = "http"
-        urlComponents.host = "data.fixer.io"
-        urlComponents.path = "/api/latest"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_key", value: "3d2ba3bcfe5a29250698c07e1ac37680")
-        ]
-        
-        return urlComponents.url
-    }
+   
     
 }
 

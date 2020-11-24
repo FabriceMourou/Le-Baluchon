@@ -70,7 +70,14 @@ class TranslateViewController: BaseViewController {
     private func settingUpToolBar() {
         let bar = UIToolbar()
         let reset = UIBarButtonItem(title: "Translate", style: .plain, target: self, action: #selector(didTapOnTranslateToolBarButton))
-        bar.items = [.flexibleSpace(), reset]
+        
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        bar.items = [flexibleSpace, reset]
         bar.sizeToFit()
         
         topTextView.inputAccessoryView = bar
