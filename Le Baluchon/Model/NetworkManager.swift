@@ -28,30 +28,43 @@ protocol NetworkManagerProtocol {
     func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void)
 }
 
-class AlwaysFailNetworkManagerMock: NetworkManagerProtocol {
+class NetworkManagerMock<U: Decodable>: NetworkManagerProtocol {
+    init(
+        resultSuccessType: U.Type,
+        resultFetch: Result<U, NetworkManagerError> = .failure(.badStatusCode),
+        resultFetchData: Result<Data, NetworkManagerError> = .success(Data())
+    ) {
+        self.resultFetch = resultFetch
+        self.resultFetchData = resultFetchData
+    }
+    
+    
+    let resultFetch: Result<U, NetworkManagerError>
+    let resultFetchData: Result<Data, NetworkManagerError>
+    
     func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
-        completion(.failure(.badStatusCode))
+        completion(resultFetch as! Result<T, NetworkManagerError>)
     }
     
     func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
-        completion(.failure(.failedToDecodeJson))
+        completion(resultFetchData)
     }
     
     
 }
-
-class CurrencySuccessNetworkManagerMock: NetworkManagerProtocol {
-    func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
-        let currencyResponse = CurrencyResponse(success: true, timestamp: 10, base: "euro", date: "10/04/22", rates: ["EUR":10, "USD": 15])
-        completion(.success(currencyResponse as! T))
-    }
-    
-    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
-        completion(.failure(.failedToDecodeJson))
-    }
-    
-    
-}
+//
+//class CurrencySuccessNetworkManagerMock: NetworkManagerProtocol {
+//    func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
+//        let currencyResponse = CurrencyResponse(success: true, timestamp: 10, base: "euro", date: "10/04/22", rates: ["EUR":10, "USD": 15])
+//        completion(.success(currencyResponse as! T))
+//    }
+//
+//    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
+//        completion(.failure(.failedToDecodeJson))
+//    }
+//
+//
+//}
 
 
 class NetworkManager: NetworkManagerProtocol {

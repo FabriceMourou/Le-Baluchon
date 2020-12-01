@@ -32,7 +32,6 @@
 		E2CC3D1C252B42D000026CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2CC3D1B252B42D000026CED /* Assets.xcassets */; };
 		E2CC3D1F252B42D000026CED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CC3D1D252B42D000026CED /* LaunchScreen.storyboard */; };
 		E2CC3D2A252B42D000026CED /* WeatherValuesFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D29252B42D000026CED /* WeatherValuesFormatterTests.swift */; };
-		E2CC3D35252B42D000026CED /* Le_BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D34252B42D000026CED /* Le_BaluchonUITests.swift */; };
 		E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CC3D45252B43B700026CED /* NetworkManager.swift */; };
 		E2D4570F255EB65C00BC3A39 /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D4570E255EB65C00BC3A39 /* LanguageTableViewCell.swift */; };
 		E2D8D54C2537027000B50A92 /* ButtonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D8D54B2537027000B50A92 /* ButtonProperties.swift */; };
@@ -41,13 +40,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		E2CC3D26252B42D000026CED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E2CC3D07252B42CD00026CED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E2CC3D0E252B42CD00026CED;
-			remoteInfo = "Le Baluchon";
-		};
-		E2CC3D31252B42D000026CED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2CC3D07252B42CD00026CED /* Project object */;
 			proxyType = 1;
@@ -85,9 +77,6 @@
 		E2CC3D25252B42D000026CED /* Le BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CC3D29252B42D000026CED /* WeatherValuesFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherValuesFormatterTests.swift; sourceTree = "<group>"; };
 		E2CC3D2B252B42D000026CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2CC3D30252B42D000026CED /* Le BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2CC3D34252B42D000026CED /* Le_BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonUITests.swift; sourceTree = "<group>"; };
-		E2CC3D36252B42D000026CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2CC3D45252B43B700026CED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E2D4570E255EB65C00BC3A39 /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
 		E2D45713255EB80A00BC3A39 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Language.swift; path = "Le Baluchon/View/Language.swift"; sourceTree = SOURCE_ROOT; };
@@ -104,13 +93,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E2CC3D22252B42D000026CED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E2CC3D2D252B42D000026CED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -161,7 +143,6 @@
 			children = (
 				E2CC3D11252B42CD00026CED /* Le Baluchon */,
 				E2CC3D28252B42D000026CED /* Le BaluchonTests */,
-				E2CC3D33252B42D000026CED /* Le BaluchonUITests */,
 				E2CC3D10252B42CD00026CED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,7 +152,6 @@
 			children = (
 				E2CC3D0F252B42CD00026CED /* Le Baluchon.app */,
 				E2CC3D25252B42D000026CED /* Le BaluchonTests.xctest */,
-				E2CC3D30252B42D000026CED /* Le BaluchonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,15 +181,6 @@
 				E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */,
 			);
 			path = "Le BaluchonTests";
-			sourceTree = "<group>";
-		};
-		E2CC3D33252B42D000026CED /* Le BaluchonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E2CC3D34252B42D000026CED /* Le_BaluchonUITests.swift */,
-				E2CC3D36252B42D000026CED /* Info.plist */,
-			);
-			path = "Le BaluchonUITests";
 			sourceTree = "<group>";
 		};
 		E2D456F3255E7D7E00BC3A39 /* Currency */ = {
@@ -304,24 +275,6 @@
 			productReference = E2CC3D25252B42D000026CED /* Le BaluchonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E2CC3D2F252B42D000026CED /* Le BaluchonUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E2CC3D3F252B42D000026CED /* Build configuration list for PBXNativeTarget "Le BaluchonUITests" */;
-			buildPhases = (
-				E2CC3D2C252B42D000026CED /* Sources */,
-				E2CC3D2D252B42D000026CED /* Frameworks */,
-				E2CC3D2E252B42D000026CED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E2CC3D32252B42D000026CED /* PBXTargetDependency */,
-			);
-			name = "Le BaluchonUITests";
-			productName = "Le BaluchonUITests";
-			productReference = E2CC3D30252B42D000026CED /* Le BaluchonUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,10 +288,6 @@
 						CreatedOnToolsVersion = 12.0.1;
 					};
 					E2CC3D24252B42D000026CED = {
-						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = E2CC3D0E252B42CD00026CED;
-					};
-					E2CC3D2F252B42D000026CED = {
 						CreatedOnToolsVersion = 12.0.1;
 						TestTargetID = E2CC3D0E252B42CD00026CED;
 					};
@@ -359,7 +308,6 @@
 			targets = (
 				E2CC3D0E252B42CD00026CED /* Le Baluchon */,
 				E2CC3D24252B42D000026CED /* Le BaluchonTests */,
-				E2CC3D2F252B42D000026CED /* Le BaluchonUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -379,13 +327,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E2CC3D23252B42D000026CED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E2CC3D2E252B42D000026CED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -432,14 +373,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2CC3D2C252B42D000026CED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E2CC3D35252B42D000026CED /* Le_BaluchonUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -447,11 +380,6 @@
 			isa = PBXTargetDependency;
 			target = E2CC3D0E252B42CD00026CED /* Le Baluchon */;
 			targetProxy = E2CC3D26252B42D000026CED /* PBXContainerItemProxy */;
-		};
-		E2CC3D32252B42D000026CED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E2CC3D0E252B42CD00026CED /* Le Baluchon */;
-			targetProxy = E2CC3D31252B42D000026CED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -675,46 +603,6 @@
 			};
 			name = Release;
 		};
-		E2CC3D40252B42D000026CED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4GMB4889M;
-				INFOPLIST_FILE = "Le BaluchonUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabrice.mourou.Le-BaluchonUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Le Baluchon";
-			};
-			name = Debug;
-		};
-		E2CC3D41252B42D000026CED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4GMB4889M;
-				INFOPLIST_FILE = "Le BaluchonUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fabrice.mourou.Le-BaluchonUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Le Baluchon";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -741,15 +629,6 @@
 			buildConfigurations = (
 				E2CC3D3D252B42D000026CED /* Debug */,
 				E2CC3D3E252B42D000026CED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E2CC3D3F252B42D000026CED /* Build configuration list for PBXNativeTarget "Le BaluchonUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E2CC3D40252B42D000026CED /* Debug */,
-				E2CC3D41252B42D000026CED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
