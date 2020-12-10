@@ -52,20 +52,6 @@ class NetworkManagerMock<U: Decodable>: NetworkManagerProtocol {
     
     
 }
-//
-//class CurrencySuccessNetworkManagerMock: NetworkManagerProtocol {
-//    func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
-//        let currencyResponse = CurrencyResponse(success: true, timestamp: 10, base: "euro", date: "10/04/22", rates: ["EUR":10, "USD": 15])
-//        completion(.success(currencyResponse as! T))
-//    }
-//
-//    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
-//        completion(.failure(.failedToDecodeJson))
-//    }
-//
-//
-//}
-
 
 class NetworkManager: NetworkManagerProtocol {
     

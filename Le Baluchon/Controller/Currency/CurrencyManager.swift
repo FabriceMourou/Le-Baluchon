@@ -11,8 +11,14 @@ enum CurrencyManagerError: Error {
 
 class CurrencyManager {
     
-    init(networkManager: NetworkManagerProtocol = NetworkManager()) {
+    init(
+        networkManager: NetworkManagerProtocol = NetworkManager(),
+        numberFormatter: NumberFormatterProtocol = NumberFormatter(),
+        urlComponents: URLComponentsProtocol = URLComponents()
+    ) {
         self.networkManager = networkManager
+        self.numberFormatter = numberFormatter
+        self.urlComponents = urlComponents
     }
 
     
@@ -65,11 +71,10 @@ class CurrencyManager {
     
     
     private let networkManager: NetworkManagerProtocol
+    private let numberFormatter: NumberFormatterProtocol
+    private var urlComponents: URLComponentsProtocol
     
     private func getConvertValueWithRateURL() -> URL? {
-        
-        var urlComponents = URLComponents()
-        
         urlComponents.scheme = "http"
         urlComponents.host = "data.fixer.io"
         urlComponents.path = "/api/latest"
@@ -84,22 +89,48 @@ class CurrencyManager {
     private func formatValue(valueToConvert: Double) -> String? {
         let finalResult = valueToConvert as NSNumber
         
-        let formattedValue = NumberFormatter()
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.groupingSeparator = " "
+        numberFormatter.groupingSize = 3
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+    
         
-        formattedValue.usesGroupingSeparator = true
-        formattedValue.groupingSeparator = " "
-        formattedValue.groupingSize = 3
-        formattedValue.numberStyle = .decimal
-        formattedValue.minimumFractionDigits = 2
-        formattedValue.maximumFractionDigits = 2
-        
-        
-        return formattedValue.string(from: finalResult)
+        return numberFormatter.string(from: finalResult)
     }
     
     
 
     
 }
+
+
+class URLComponentsMock: URLComponentsProtocol {
+    var scheme: String? = ""
+    
+    var host: String? = ""
+    
+    var path: String = ""
+    
+    var queryItems: [URLQueryItem]? = []
+    
+    var url: URL? = nil
+    
+    
+}
+
+
+protocol URLComponentsProtocol {
+    var scheme: String? { get set }
+    var host: String? { get set }
+    var path: String { get set }
+    var queryItems: [URLQueryItem]? { get set }
+    var url: URL? { get }
+}
+
+
+extension URLComponents: URLComponentsProtocol { }
+
 
 

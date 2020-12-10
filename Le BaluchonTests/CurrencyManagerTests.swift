@@ -63,9 +63,9 @@ class CurrencyManagerTests: XCTestCase {
     }
     
     
-    func test_givenNormalValue_whenConvertValueWithRate_thenGetCorrectFormattedValueAsString() throws {
+    func test_givenNormalValue_whenConvertValueWithRate_thenGetfailedToGetRatesForConversion() throws {
         
-        let currencyResponse = CurrencyResponse(success: true, timestamp: 1606844045, base: "EUR", date: "2020-12-01", rates: ["EUR": 1.1, "USD": 1.0])
+        let currencyResponse = CurrencyResponse(success: true, timestamp: 1606844045, base: "EUR", date: "2020-12-01", rates: ["EUR": 1.1, "CHF": 1.0])
         
         let networkManagerMock = NetworkManagerMock(
             resultSuccessType: CurrencyResponse.self,
@@ -76,15 +76,43 @@ class CurrencyManagerTests: XCTestCase {
         
         currencyManager.convertValueWithRate(value: 100, sourceCurrency: .dollar, targetCurrency: .euro) { (result) in
             switch result {
-            case .success(let convertedValue):
-                XCTAssertEqual(convertedValue, "110.00")
-            case .failure:
+            case .success:
                XCTFail()
+            case .failure(let error):
+                XCTAssertEqual(error, .failedToGetRatesForConversion)
+            
+            }
+        }
+    }
+    
+    
+    func test_givenNormalValue_whenConvertValueWithRate_thenFailedToConvertCorrectFormattedValueAsString() throws {
+        
+        let currencyResponse = CurrencyResponse(success: true, timestamp: 1606844045, base: "EUR", date: "2020-12-01", rates: ["EUR": 1.1, "USD": 1.0])
+        
+        let networkManagerMock = NetworkManagerMock(
+            resultSuccessType: CurrencyResponse.self,
+            resultFetch: .success(currencyResponse)
+        )
+        
+        let currencyManager = CurrencyManager(
+            
+            networkManager: networkManagerMock,
+            numberFormatter: NumberFormatterMock()
+        )
+        
+        currencyManager.convertValueWithRate(value: 110.000, sourceCurrency: .dollar, targetCurrency: .euro) { (result) in
+            switch result {
+            case .success:
+                XCTFail()
+            case .failure(let error):
+                XCTAssertEqual(error, .failedToConvertValue)
             }
         }
     }
    
-   
+
+    //             urlComponents: URLComponentsMock()
     
 }
 

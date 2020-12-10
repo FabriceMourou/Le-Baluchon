@@ -168,8 +168,6 @@ class TranslateViewController: BaseViewController {
     
 }
 
-
-
 extension TranslateViewController: LanguageViewControllerDelegate {
     func didSelectLanguage(language: Language, languageSelectionType: LanguageSelectionType) {
         

@@ -704,7 +704,7 @@
                                     <action selector="dismiss" destination="76w-dV-Fcv" eventType="touchUpInside" id="yVQ-ez-g9B"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNL-p1-hHc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="bNL-p1-hHc">
                                 <rect key="frame" x="40" y="100" width="240" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="of7-l8-gur"/>

@@ -1,9 +1,5 @@
-//
-//  LanguageTableViewCell.swift
-//  Le Baluchon
-//
-//  Created by Fabrice Mourou on 13/11/2020.
-//
+
+
 
 import UIKit
 
