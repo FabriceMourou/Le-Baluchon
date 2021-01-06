@@ -7,7 +7,7 @@ class WeatherViewController: BaseViewController {
     
     // MARK: Properties - Internal
     
-    
+   
     
     // MARK: Methods - Internal
     
@@ -19,7 +19,9 @@ class WeatherViewController: BaseViewController {
     
     @IBAction func didTapNewyorkButton() {
         newYorkActivityIndicator.startAnimating()
-        displaysWeatherDataFromCity(cityName: "new york", isCustomCity: false)
+        
+            
+        
         
     }
     
@@ -43,21 +45,15 @@ class WeatherViewController: BaseViewController {
     // MARK: Properties - Private
     
     @IBOutlet private weak var newyorkButton: UIButton!
-    @IBOutlet weak var textFieldButton: UIButton!
+    @IBOutlet private weak var textFieldButton: UIButton!
     @IBOutlet private weak var customCitySearchTextField: UITextField!
     @IBOutlet private weak var newyorkLabel: UILabel!
     @IBOutlet private weak var cityActivityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var newYorkActivityIndicator: UIActivityIndicatorView!
     
     
+    let weatherManager = WeatherManager()
     
-    
-    private var cityInputNameSearchString: String? {
-        guard let textValue = customCitySearchTextField.text else{
-            
-            return nil }
-        return String(textValue)
-    }
     
     
     
@@ -65,53 +61,39 @@ class WeatherViewController: BaseViewController {
     
     
     private func displayCityWeather() {
-        guard let cityName = cityInputNameSearchString else {
-            
-            return
-        }
         cityActivityIndicator.startAnimating()
-        displaysWeatherDataFromCity(cityName: cityName, isCustomCity: true)
-    }
-    
-    
-    private let networkManager = NetworkManager()
-    
-    private func displaysWeatherDataFromCity(cityName: String, isCustomCity: Bool) {
-        
-        guard let url = getWeatherValuesURL(cityName: cityName) else {
-            return
-        }
-        
-        networkManager.fetch(url: url) { [weak self](result: Result<WeatherResponse,  NetworkManagerError>) in
+        weatherManager.displaysWeatherDataFromCity(
+            cityName: customCitySearchTextField.text!
+        ) { [weak self]  (result) in
             
             DispatchQueue.main.async {
                 switch result {
+                
                 case .success(let response):
-                    if isCustomCity {
-                        self?.customCitySearchTextField.text = response.name
-                    } else {
-                        self?.newyorkLabel.text = response.name
-                    }
+                    self?.prepare(for: <#UIStoryboardSegue#>, sender: <#Any?#>)
                     
-                    self?.weatherResponse = response
-                    self?.performSegue(withIdentifier: "GoToCityWeatherDetailsSegue", sender: nil)
+                case .failure(let error):
+                    self?.presentAlert()
                     
-                    self?.newYorkActivityIndicator.stopAnimating()
-                    self?.cityActivityIndicator.stopAnimating()
-                    
-                    
-                case .failure( _):
-                    self?.alertManager.presentAlert(from: self!, message: "Could not get weather data informations")
                 }
-                self?.cityActivityIndicator.stopAnimating()
-                self?.newYorkActivityIndicator.stopAnimating()
+                
             }
             
         }
+        
     }
     
-    private var weatherResponse: WeatherResponse?
+    private func presentAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Failed", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
+    }
     
+ 
+    
+    
+    private var weatherResponse: WeatherResponse?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -124,21 +106,7 @@ class WeatherViewController: BaseViewController {
     }
     
     
-    private func getWeatherValuesURL(cityName: String) -> URL? {
-        
-        var urlComponents = URLComponents()
-        
-        urlComponents.scheme = "http"
-        urlComponents.host = "api.openweathermap.org"
-        urlComponents.path = "/data/2.5/weather"
-        urlComponents.queryItems = [
-            .init(name: "q", value: cityName),
-            .init(name: "appid", value: "022b0764cc4f75219db52fb5bb71cd2b"),
-            .init(name: "units", value: "metric")
-        ]
-        
-        return urlComponents.url
-    }
+   
     
     
     

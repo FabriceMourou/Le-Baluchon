@@ -14,11 +14,13 @@
 		E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D834D253DECE30050B940 /* LanguageViewController.swift */; };
 		E25113692535CE0300C8A042 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25113682535CE0300C8A042 /* TranslateViewController.swift */; };
 		E251136E2535D79700C8A042 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251136D2535D79700C8A042 /* CityViewController.swift */; };
+		E26950C7258228AC0077AB35 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26950C6258228AC0077AB35 /* WeatherManager.swift */; };
 		E27652E1256BF00E00595F70 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27652E0256BF00E00595F70 /* CurrencyManager.swift */; };
 		E27652E9256D81BF00595F70 /* CurrencyManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */; };
 		E276C83F256441D500C6C16C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D45713255EB80A00BC3A39 /* Language.swift */; };
 		E278C60225488D770012821A /* CurrencyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60125488D770012821A /* CurrencyResponse.swift */; };
 		E278C60725488D960012821A /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278C60625488D960012821A /* WeatherResponse.swift */; };
+		E27A56B02588B0A100443EFC /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A56AF2588B0A100443EFC /* TranslateManager.swift */; };
 		E27FC0FF257FF5C10026C89B /* NumberFormatter+NumberFormatterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FC0FE257FF5C10026C89B /* NumberFormatter+NumberFormatterMock.swift */; };
 		E27FC106257FF6130026C89B /* NumberFormatterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27FC102257FF5DD0026C89B /* NumberFormatterMock.swift */; };
 		E29883B42534B02A005A52D8 /* Dash-Horizon-Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */; };
@@ -58,10 +60,12 @@
 		E24D834D253DECE30050B940 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguageViewController.swift; path = "Le Baluchon/Controller/Translate/LanguageViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E25113682535CE0300C8A042 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/Controller/Translate/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E251136D2535D79700C8A042 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = "Le Baluchon/Controller/Weather/CityViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E26950C6258228AC0077AB35 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		E27652E0256BF00E00595F70 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyManager.swift; path = "Le Baluchon/Controller/Currency/CurrencyManager.swift"; sourceTree = SOURCE_ROOT; };
 		E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManagerTests.swift; sourceTree = "<group>"; };
 		E278C60125488D770012821A /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
 		E278C60625488D960012821A /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		E27A56AF2588B0A100443EFC /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateManager.swift; path = "Le Baluchon/Model/Weather/TranslateManager.swift"; sourceTree = SOURCE_ROOT; };
 		E27FC0FE257FF5C10026C89B /* NumberFormatter+NumberFormatterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+NumberFormatterMock.swift"; sourceTree = "<group>"; };
 		E27FC102257FF5DD0026C89B /* NumberFormatterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterMock.swift; sourceTree = "<group>"; };
 		E29883B32534B02A005A52D8 /* Dash-Horizon-Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dash-Horizon-Demo.otf"; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				E2300B862552AE7F00BBB843 /* WeatherValuesFormatter.swift */,
+				E26950C6258228AC0077AB35 /* WeatherManager.swift */,
 				E278C60625488D960012821A /* WeatherResponse.swift */,
 			);
 			path = Weather;
@@ -237,6 +242,7 @@
 		E2D456F8255E7E4300BC3A39 /* Translate */ = {
 			isa = PBXGroup;
 			children = (
+				E27A56AF2588B0A100443EFC /* TranslateManager.swift */,
 				E2D45713255EB80A00BC3A39 /* Language.swift */,
 				E2300B8E2552AFDD00BBB843 /* TranslateResponse.swift */,
 			);
@@ -349,12 +355,14 @@
 				E2300B872552AE7F00BBB843 /* WeatherValuesFormatter.swift in Sources */,
 				E2300B8F2552AFDD00BBB843 /* TranslateResponse.swift in Sources */,
 				E2D8D54C2537027000B50A92 /* ButtonProperties.swift in Sources */,
+				E26950C7258228AC0077AB35 /* WeatherManager.swift in Sources */,
 				E276C83F256441D500C6C16C /* Language.swift in Sources */,
 				E2D4570F255EB65C00BC3A39 /* LanguageTableViewCell.swift in Sources */,
 				E278C60725488D960012821A /* WeatherResponse.swift in Sources */,
 				E251136E2535D79700C8A042 /* CityViewController.swift in Sources */,
 				E24D834E253DECE30050B940 /* LanguageViewController.swift in Sources */,
 				E2CC3D46252B43B700026CED /* NetworkManager.swift in Sources */,
+				E27A56B02588B0A100443EFC /* TranslateManager.swift in Sources */,
 				E29883BE2534BDF9005A52D8 /* BaluchonTabBarController.swift in Sources */,
 				E2CC3D17252B42CD00026CED /* CurrencyViewController.swift in Sources */,
 				E2CC3D13252B42CD00026CED /* AppDelegate.swift in Sources */,

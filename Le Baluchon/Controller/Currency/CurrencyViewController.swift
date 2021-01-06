@@ -40,7 +40,7 @@ class CurrencyViewController: BaseViewController {
     
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var valueToConvertTextField: UITextField!
-    @IBOutlet weak var convertedValueLabel: UILabel!
+    @IBOutlet private weak var convertedValueLabel: UILabel!
     @IBOutlet private weak var sourceCurrencySymbolLabel: UILabel!
     @IBOutlet private weak var targetCurrencySymbolLabel: UILabel!
     @IBOutlet private weak var swapCurrenciesButton: UIButton!
@@ -109,6 +109,7 @@ class CurrencyViewController: BaseViewController {
             return
         }
         currencyActivityIndicator.startAnimating()
+        
         currencyManager.convertValueWithRate(value: valueToConvert, sourceCurrency: sourceCurrency, targetCurrency: targetCurrency) { [weak self] result in
             DispatchQueue.main.async {
                 self?.currencyActivityIndicator.stopAnimating()
