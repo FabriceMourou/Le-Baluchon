@@ -2,25 +2,73 @@
 
 import Foundation
 
-enum WeatherManagerError: Error {
-    case failedToGetInformationForWeather
-    case failedToConvertValue
-    case failedToGetWeatherDataInformation
-    case failedToCreateUrlForWeather
+
+class FormattedWeatherData {
+    init(temperature: String?, feelLikeTemperature: String?, highTemperature: String?, lowTemperature: String?, percentageCloudiness: String?, percentageHumidity: String?, cityName: String?, cityCountry: String?, longitude: String?, latitude: String?, description: String?, iconId: String?) {
+        self.temperature = temperature
+        self.feelLikeTemperature = feelLikeTemperature
+        self.highTemperature = highTemperature
+        self.lowTemperature = lowTemperature
+        self.percentageCloudiness = percentageCloudiness
+        self.percentageHumidity = percentageHumidity
+        self.cityName = cityName
+        self.cityCountry = cityCountry
+        self.longitude = longitude
+        self.latitude = latitude
+        self.description = description
+        self.iconId = iconId
+    }
+    
+  
+    
+
+    let temperature: String?
+    let feelLikeTemperature: String?
+    
+    let highTemperature: String?
+    let lowTemperature: String?
+    
+    let percentageCloudiness: String?
+    let percentageHumidity: String?
+    
+    let cityName: String?
+    let cityCountry: String?
+    
+    let longitude: String?
+    let latitude: String?
+    
+    let description: String?
+    let iconId: String?
+    
 }
 
 
 class WeatherManager {
     
+    enum WeatherManagerError: Error {
+        case failedToGetInformationForWeather
+        case failedToConvertValue
+        case failedToGetWeatherDataInformation
+        case failedToCreateUrlForWeather
+        
+        case failedToGetWeatherIconImageData
+        case failedToCreateUrlForWeatherIconImageData
+    }
     
     
     private let networkManager = NetworkManager()
-  
+    private let weatherValuesFormatter = WeatherValuesFormatter()
+    private var weatherResponse: WeatherResponse?
     
-    func displaysWeatherDataFromCity(cityName: String?, completion: @escaping (Result<String, WeatherManagerError>) -> Void) {
+    func getWeatherDataFromCity(cityName: String?, completion: @escaping (Result<FormattedWeatherData, WeatherManagerError>) -> Void) {
         
-        guard let url = getWeatherValuesURL(cityName: cityName!) else {
-            completion(.failure(.failedToCreateUrlForWeather))
+        guard let cityInput = cityName else {
+            completion(.failure(.failedToGetInformationForWeather))
+            return
+        }
+        
+        guard let url = getWeatherValuesURL(cityName: cityInput) else {
+            completion(.failure(.failedToConvertValue))
             return
         }
         
@@ -29,23 +77,74 @@ class WeatherManager {
             
             switch result {
             case .success(let response):
-                guard let info =
-                        response.base else {
+                
+                guard let main = response.main else {
                     completion( .failure(.failedToGetInformationForWeather))
                     return 
                 }
-                completion(.success(info))
+                
+                let value1 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.temp)
+                let value2 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.feelsLike)
+                let value3 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.tempMax)
+                let value4 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.tempMin)
+                let value5 = self?.weatherValuesFormatter.getFormattedPercentage(from: response.clouds?.all)
+                let value6 = self?.weatherValuesFormatter.getFormattedPercentage(from: main.humidity)
+                let value7 = response.name
+                let value8 = response.sys?.country
+                let value9 = response.coord?.lon?.description
+                let value10 = response.coord?.lat?.description
+                let value11 = response.weather?.first?.weatherDescription
+                let value12 = response.weather?.first?.icon
+                
+                let formattedWeatherData = FormattedWeatherData(
+                    temperature: value1,
+                    feelLikeTemperature: value2,
+                    highTemperature: value3,
+                    lowTemperature: value4,
+                    percentageCloudiness: value5,
+                    percentageHumidity: value6,
+                    cityName:  value7,
+                    cityCountry: value8,
+                    longitude: value9,
+                    latitude: value10,
+                    description: value11,
+                    iconId: value12
+                )
+                
+                completion(.success(formattedWeatherData))
+                
                 
             case .failure:
+                
                 completion(.failure(.failedToGetWeatherDataInformation))
                 
             }
         }
         
     }
+    
+    
+    func getWeatherIconImage(iconId: String, completion: @escaping (Result<Data, WeatherManagerError>) -> Void) {
+        guard let iconUrl = URL(string: "http://openweathermap.org/img/wn/\(iconId)@2x.png") else {
+            completion(.failure(.failedToCreateUrlForWeatherIconImageData))
+            return
+        }
+        
+        networkManager.fetchData(url: iconUrl) { [weak self] (result) in
+            
+            switch result {
+            case .success(let iconImageData):
+                completion(.success(iconImageData))
+                
+            case .failure:
+                completion(.failure(.failedToGetWeatherIconImageData))
+            }
+            
+        }
+    }
 
     
-    private var weatherResponse: WeatherResponse?
+    
     
     private func getWeatherValuesURL(cityName: String) -> URL? {
         

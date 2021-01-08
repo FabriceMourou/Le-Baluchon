@@ -538,8 +538,8 @@
                         <outlet property="percentageCloudinessLabel" destination="NFt-Rr-2ks" id="zQ1-F4-l35"/>
                         <outlet property="percentageHumidityLabel" destination="RXs-pD-Pa8" id="cfT-Sl-F39"/>
                         <outlet property="temperatureLabel" destination="vN1-Ns-6IE" id="zbX-SU-ohL"/>
+                        <outlet property="weatherDescriptionLabel" destination="vWx-fR-QAr" id="jEt-0h-aZd"/>
                         <outlet property="weatherIconImageView" destination="SWC-L2-Iqv" id="M09-KJ-nLe"/>
-                        <outlet property="weatherIconLabel" destination="vWx-fR-QAr" id="jEt-0h-aZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbX-Ia-g2I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

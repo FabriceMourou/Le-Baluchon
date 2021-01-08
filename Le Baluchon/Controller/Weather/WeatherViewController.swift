@@ -12,15 +12,19 @@ class WeatherViewController: BaseViewController {
     // MARK: Methods - Internal
     
     @IBAction func didTapCityTextFieldButton() {
-        displayCityWeather()
+        displayCityWeather(
+            cityName: customCitySearchTextField.text,
+            activityIndicatorView: cityActivityIndicator
+        )
     }
     
     
     
     @IBAction func didTapNewyorkButton() {
-        newYorkActivityIndicator.startAnimating()
-        
-            
+        displayCityWeather(
+            cityName: "New York",
+            activityIndicatorView: newYorkActivityIndicator
+        )
         
         
     }
@@ -53,6 +57,7 @@ class WeatherViewController: BaseViewController {
     
     
     let weatherManager = WeatherManager()
+    //let alertManager = AlertManager()
     
     
     
@@ -60,21 +65,27 @@ class WeatherViewController: BaseViewController {
     // MARK: Methods - Private
     
     
-    private func displayCityWeather() {
-        cityActivityIndicator.startAnimating()
-        weatherManager.displaysWeatherDataFromCity(
-            cityName: customCitySearchTextField.text!
+    private func displayCityWeather(cityName: String?, activityIndicatorView: UIActivityIndicatorView) {
+        activityIndicatorView.startAnimating()
+        
+        weatherManager.getWeatherDataFromCity(
+            cityName: cityName
         ) { [weak self]  (result) in
             
             DispatchQueue.main.async {
+                activityIndicatorView.stopAnimating()
+                
+                
                 switch result {
                 
-                case .success(let response):
-                    self?.prepare(for: <#UIStoryboardSegue#>, sender: <#Any?#>)
-                    
-                case .failure(let error):
+                case .failure:
                     self?.presentAlert()
+                
+                case .success(let formattedWeatherData):
+                    self?.formattedWeatherData = formattedWeatherData
+                    self?.performSegue(withIdentifier: "GoToCityWeatherDetailsSegue", sender: self)
                     
+               
                 }
                 
             }
@@ -83,6 +94,7 @@ class WeatherViewController: BaseViewController {
         
     }
     
+    // TODO: Remove and use AlertManager
     private func presentAlert() {
         let alertController = UIAlertController(title: "Error", message: "Failed", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -93,14 +105,14 @@ class WeatherViewController: BaseViewController {
  
     
     
-    private var weatherResponse: WeatherResponse?
+    private var formattedWeatherData: FormattedWeatherData?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
         
         if let cityViewController = segue.destination as? CityViewController {
-            cityViewController.weatherResponse = weatherResponse
+            cityViewController.formattedWeatherData = formattedWeatherData
             
         }
     }

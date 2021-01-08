@@ -4,7 +4,8 @@ import Foundation
 
 
 class WeatherValuesFormatter {
-    func getFormattedTemperature(from unformattedTemperature: Double) -> String? {
+    func getFormattedTemperature(from unformattedTemperature: Double?) -> String? {
+        guard let unformattedTemperature = unformattedTemperature else { return nil }
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .none
@@ -15,7 +16,9 @@ class WeatherValuesFormatter {
         
     }
     
-    func getFormattedPercentage(from unformattedPercentage: Double) -> String? {
+    func getFormattedPercentage(from unformattedPercentage: Int?) -> String? {
+        guard let unformattedPercentage = unformattedPercentage else { return nil }
+        
         let percentageFormatter = NumberFormatter()
         guard let formattedPercentage = percentageFormatter.string(from: unformattedPercentage as NSNumber) else { return nil }
         return formattedPercentage + "%"

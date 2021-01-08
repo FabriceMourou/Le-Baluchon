@@ -4,9 +4,6 @@ class BaseViewController: UIViewController {
     
     // MARK: - Internal
     
-    // MARK: Properties - Internal
-    
-    let alertManager = AlertManager()
     
     // MARK: Methods - Internal
     

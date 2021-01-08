@@ -38,6 +38,8 @@ class CurrencyViewController: BaseViewController {
     
     // MARK: Properties - Private
     
+    private let alertManager = AlertManager()
+    
     @IBOutlet private weak var convertButton: UIButton!
     @IBOutlet private weak var valueToConvertTextField: UITextField!
     @IBOutlet private weak var convertedValueLabel: UILabel!
