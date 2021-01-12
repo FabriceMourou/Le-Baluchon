@@ -17,9 +17,9 @@ class CityViewController: BaseViewController {
     /// ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        assignTemperatureInformation()
+        
+        assignWeatherDataInformation()
         assignCityInformation()
         assignWeatherIconInformation()
         
@@ -32,7 +32,7 @@ class CityViewController: BaseViewController {
     
     // MARK: Properties - Private
     
-
+    
     private let weatherManager = WeatherManager()
     private let alertManager = AlertManager()
     
@@ -56,8 +56,8 @@ class CityViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
-    private func assignTemperatureInformation() {
+    
+    private func assignWeatherDataInformation() {
         guard let formattedWeatherData = formattedWeatherData else { return }
         
         temperatureLabel.text = formattedWeatherData.temperature
@@ -66,12 +66,13 @@ class CityViewController: BaseViewController {
         lowTemperatureLabel.text = formattedWeatherData.lowTemperature
         percentageCloudinessLabel.text = formattedWeatherData.percentageCloudiness
         percentageHumidityLabel.text = formattedWeatherData.percentageHumidity
-    
+        
     }
     
-
+    
     private func assignCityInformation() {
         guard let formattedWeatherData = formattedWeatherData else { return }
+        
         cityLabel.text = formattedWeatherData.cityName
         countryLabel.text = formattedWeatherData.cityCountry
         longitudeLabel.text = formattedWeatherData.longitude
@@ -100,19 +101,8 @@ class CityViewController: BaseViewController {
                     self.alertManager.presentAlert(from: self, message: "Failed to get icon image data")
                 }
             }
-           
-            
         }
-        
-        
-        
-        
     }
-    
-    
-    
-    
-    
 }
 
 

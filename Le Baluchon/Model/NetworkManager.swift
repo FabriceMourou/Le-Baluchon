@@ -2,22 +2,7 @@
 import Foundation
 
 
-enum NetworkManagerError: LocalizedError {
-    case unknownError
-    case badStatusCode
-    case noData
-    case failedToDecodeJson
-    
-    
-    var errorDescription: String? {
-        switch self {
-        case .badStatusCode: return "Bad status code"
-        case .failedToDecodeJson: return "Failed to decode json"
-        case .noData: return "Could not get data"
-        case .unknownError: return "Unknown error occured"
-        }
-    }
-}
+
 
 
 // MARK: Methods - Internal
@@ -28,35 +13,22 @@ protocol NetworkManagerProtocol {
     func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void)
 }
 
-class NetworkManagerMock<U: Decodable>: NetworkManagerProtocol {
-    init(
-        resultSuccessType: U.Type,
-        resultFetch: Result<U, NetworkManagerError> = .failure(.badStatusCode),
-        resultFetchData: Result<Data, NetworkManagerError> = .success(Data())
-    ) {
-        self.resultFetch = resultFetch
-        self.resultFetchData = resultFetchData
-    }
-    
-    
-    let resultFetch: Result<U, NetworkManagerError>
-    let resultFetchData: Result<Data, NetworkManagerError>
-    
-    func fetch<T>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) where T : Decodable {
-        completion(resultFetch as! Result<T, NetworkManagerError>)
-    }
-    
-    func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
-        completion(resultFetchData)
-    }
-    
-    
-}
+
 
 class NetworkManager: NetworkManagerProtocol {
     
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+    
+    
+    
+    let session: URLSession
+    
     func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        
+        
+        session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 completion(.failure(.unknownError))
                 return
@@ -88,7 +60,7 @@ class NetworkManager: NetworkManagerProtocol {
     
     
     func fetchData(url: URL, completion: @escaping (Result<Data, NetworkManagerError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 completion(.failure(.unknownError))
                 return

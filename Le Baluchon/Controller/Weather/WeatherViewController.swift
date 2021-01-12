@@ -57,7 +57,7 @@ class WeatherViewController: BaseViewController {
     
     
     let weatherManager = WeatherManager()
-    //let alertManager = AlertManager()
+    let alertManager = AlertManager()
     
     
     
@@ -79,32 +79,18 @@ class WeatherViewController: BaseViewController {
                 switch result {
                 
                 case .failure:
-                    self?.presentAlert()
+                    guard let self = self else { return }
+                    self.alertManager.presentAlert(from: self, message: "Failed to get weather data")
+
                 
                 case .success(let formattedWeatherData):
                     self?.formattedWeatherData = formattedWeatherData
                     self?.performSegue(withIdentifier: "GoToCityWeatherDetailsSegue", sender: self)
-                    
-               
                 }
-                
             }
-            
         }
-        
     }
-    
-    // TODO: Remove and use AlertManager
-    private func presentAlert() {
-        let alertController = UIAlertController(title: "Error", message: "Failed", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
-    }
-    
  
-    
-    
     private var formattedWeatherData: FormattedWeatherData?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -116,14 +102,5 @@ class WeatherViewController: BaseViewController {
             
         }
     }
-    
-    
-   
-    
-    
-    
-    
-    
-    
     
 }

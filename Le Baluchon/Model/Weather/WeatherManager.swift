@@ -19,9 +19,6 @@ class FormattedWeatherData {
         self.iconId = iconId
     }
     
-  
-    
-
     let temperature: String?
     let feelLikeTemperature: String?
     
@@ -83,32 +80,32 @@ class WeatherManager {
                     return 
                 }
                 
-                let value1 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.temp)
-                let value2 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.feelsLike)
-                let value3 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.tempMax)
-                let value4 = self?.weatherValuesFormatter.getFormattedTemperature(from: main.tempMin)
-                let value5 = self?.weatherValuesFormatter.getFormattedPercentage(from: response.clouds?.all)
-                let value6 = self?.weatherValuesFormatter.getFormattedPercentage(from: main.humidity)
-                let value7 = response.name
-                let value8 = response.sys?.country
-                let value9 = response.coord?.lon?.description
-                let value10 = response.coord?.lat?.description
-                let value11 = response.weather?.first?.weatherDescription
-                let value12 = response.weather?.first?.icon
+                let cityTemperature = self?.weatherValuesFormatter.getFormattedTemperature(from: main.temp)
+                let feelLikeTemperature = self?.weatherValuesFormatter.getFormattedTemperature(from: main.feelsLike)
+                let cityTemperatureMax = self?.weatherValuesFormatter.getFormattedTemperature(from: main.tempMax)
+                let cityTemperatureMin = self?.weatherValuesFormatter.getFormattedTemperature(from: main.tempMin)
+                let percentageCloudiness = self?.weatherValuesFormatter.getFormattedPercentage(from: response.clouds?.all)
+                let percentageHumidity = self?.weatherValuesFormatter.getFormattedPercentage(from: main.humidity)
+                let cityName = response.name
+                let country = response.sys?.country
+                let longitude = response.coord?.lon?.description
+                let latitude = response.coord?.lat?.description
+                let weatherDescription = response.weather?.first?.weatherDescription
+                let weatherIcon = response.weather?.first?.icon
                 
                 let formattedWeatherData = FormattedWeatherData(
-                    temperature: value1,
-                    feelLikeTemperature: value2,
-                    highTemperature: value3,
-                    lowTemperature: value4,
-                    percentageCloudiness: value5,
-                    percentageHumidity: value6,
-                    cityName:  value7,
-                    cityCountry: value8,
-                    longitude: value9,
-                    latitude: value10,
-                    description: value11,
-                    iconId: value12
+                    temperature: cityTemperature,
+                    feelLikeTemperature: feelLikeTemperature,
+                    highTemperature: cityTemperatureMax,
+                    lowTemperature: cityTemperatureMin,
+                    percentageCloudiness: percentageCloudiness,
+                    percentageHumidity: percentageHumidity,
+                    cityName:  cityName,
+                    cityCountry: country,
+                    longitude: longitude,
+                    latitude: latitude,
+                    description: weatherDescription,
+                    iconId: weatherIcon
                 )
                 
                 completion(.success(formattedWeatherData))
@@ -142,9 +139,6 @@ class WeatherManager {
             
         }
     }
-
-    
-    
     
     private func getWeatherValuesURL(cityName: String) -> URL? {
         
