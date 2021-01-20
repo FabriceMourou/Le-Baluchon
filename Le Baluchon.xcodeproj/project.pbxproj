@@ -17,6 +17,9 @@
 		E2540E1525AE0F09008DC90D /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2540E1425AE0F09008DC90D /* NetworkManagerMock.swift */; };
 		E2540E1925AE0FBE008DC90D /* NetworkManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2540E1825AE0FBE008DC90D /* NetworkManagerError.swift */; };
 		E2540E1D25AE1252008DC90D /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2540E1C25AE1252008DC90D /* NetworkManagerTests.swift */; };
+		E2540E2125AF2F84008DC90D /* TranslateManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2540E2025AF2F84008DC90D /* TranslateManagerTest.swift */; };
+		E2540E2525AF2FAD008DC90D /* WeatherManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2540E2425AF2FAD008DC90D /* WeatherManagerTest.swift */; };
+		E264C97725B046AD0026FB68 /* FormattedWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E264C97625B046AD0026FB68 /* FormattedWeatherData.swift */; };
 		E26950C7258228AC0077AB35 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26950C6258228AC0077AB35 /* WeatherManager.swift */; };
 		E27652E1256BF00E00595F70 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27652E0256BF00E00595F70 /* CurrencyManager.swift */; };
 		E27652E9256D81BF00595F70 /* CurrencyManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */; };
@@ -66,9 +69,12 @@
 		E24D834D253DECE30050B940 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguageViewController.swift; path = "Le Baluchon/Controller/Translate/LanguageViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E25113682535CE0300C8A042 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/Controller/Translate/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E251136D2535D79700C8A042 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityViewController.swift; path = "Le Baluchon/Controller/Weather/CityViewController.swift"; sourceTree = SOURCE_ROOT; };
-		E2540E1425AE0F09008DC90D /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManagerMock.swift; path = "Le Baluchon/Model/NetworkManagerMock.swift"; sourceTree = SOURCE_ROOT; };
+		E2540E1425AE0F09008DC90D /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManagerMock.swift; path = "Le BaluchonTests/NetworkManagerTest/NetworkManagerMock.swift"; sourceTree = SOURCE_ROOT; };
 		E2540E1825AE0FBE008DC90D /* NetworkManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerError.swift; sourceTree = "<group>"; };
 		E2540E1C25AE1252008DC90D /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		E2540E2025AF2F84008DC90D /* TranslateManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateManagerTest.swift; path = "Le BaluchonTests/TranslateTest/TranslateManagerTest.swift"; sourceTree = SOURCE_ROOT; };
+		E2540E2425AF2FAD008DC90D /* WeatherManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerTest.swift; sourceTree = "<group>"; };
+		E264C97625B046AD0026FB68 /* FormattedWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedWeatherData.swift; sourceTree = "<group>"; };
 		E26950C6258228AC0077AB35 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		E27652E0256BF00E00595F70 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyManager.swift; path = "Le Baluchon/Controller/Currency/CurrencyManager.swift"; sourceTree = SOURCE_ROOT; };
 		E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManagerTests.swift; sourceTree = "<group>"; };
@@ -160,6 +166,44 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E2540E2825AF2FC1008DC90D /* CurrencyTest */ = {
+			isa = PBXGroup;
+			children = (
+				E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */,
+				E27FC102257FF5DD0026C89B /* NumberFormatterMock.swift */,
+			);
+			path = CurrencyTest;
+			sourceTree = "<group>";
+		};
+		E2540E2925AF2FD4008DC90D /* TranslateTest */ = {
+			isa = PBXGroup;
+			children = (
+				E2540E2025AF2F84008DC90D /* TranslateManagerTest.swift */,
+			);
+			path = TranslateTest;
+			sourceTree = "<group>";
+		};
+		E2540E2A25AF2FE5008DC90D /* WeatherTest */ = {
+			isa = PBXGroup;
+			children = (
+				E2CC3D29252B42D000026CED /* WeatherValuesFormatterTests.swift */,
+				E2540E2425AF2FAD008DC90D /* WeatherManagerTest.swift */,
+			);
+			path = WeatherTest;
+			sourceTree = "<group>";
+		};
+		E2540E2B25AF2FF6008DC90D /* NetworkManagerTest */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEED8325AB0F8200A777BF /* URLSessionFake.swift */,
+				E2FEED8725AB103B00A777BF /* URLSessionDataTaskFake.swift */,
+				E2540E1C25AE1252008DC90D /* NetworkManagerTests.swift */,
+				E2EB0C3B25ACB918002FEC8F /* FakeResponseData.swift */,
+				E2540E1425AE0F09008DC90D /* NetworkManagerMock.swift */,
+			);
+			path = NetworkManagerTest;
+			sourceTree = "<group>";
+		};
 		E2CC3D06252B42CD00026CED = {
 			isa = PBXGroup;
 			children = (
@@ -198,15 +242,11 @@
 		E2CC3D28252B42D000026CED /* Le BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2540E1425AE0F09008DC90D /* NetworkManagerMock.swift */,
-				E2EB0C3B25ACB918002FEC8F /* FakeResponseData.swift */,
-				E2540E1C25AE1252008DC90D /* NetworkManagerTests.swift */,
-				E27FC102257FF5DD0026C89B /* NumberFormatterMock.swift */,
-				E2CC3D29252B42D000026CED /* WeatherValuesFormatterTests.swift */,
+				E2540E2B25AF2FF6008DC90D /* NetworkManagerTest */,
+				E2540E2A25AF2FE5008DC90D /* WeatherTest */,
+				E2540E2925AF2FD4008DC90D /* TranslateTest */,
+				E2540E2825AF2FC1008DC90D /* CurrencyTest */,
 				E2CC3D2B252B42D000026CED /* Info.plist */,
-				E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */,
-				E2FEED8325AB0F8200A777BF /* URLSessionFake.swift */,
-				E2FEED8725AB103B00A777BF /* URLSessionDataTaskFake.swift */,
 			);
 			path = "Le BaluchonTests";
 			sourceTree = "<group>";
@@ -242,6 +282,7 @@
 			children = (
 				E2300B862552AE7F00BBB843 /* WeatherValuesFormatter.swift */,
 				E26950C6258228AC0077AB35 /* WeatherManager.swift */,
+				E264C97625B046AD0026FB68 /* FormattedWeatherData.swift */,
 				E278C60625488D960012821A /* WeatherResponse.swift */,
 			);
 			path = Weather;
@@ -375,6 +416,7 @@
 				E2300B8F2552AFDD00BBB843 /* TranslateResponse.swift in Sources */,
 				E2D8D54C2537027000B50A92 /* ButtonProperties.swift in Sources */,
 				E26950C7258228AC0077AB35 /* WeatherManager.swift in Sources */,
+				E264C97725B046AD0026FB68 /* FormattedWeatherData.swift in Sources */,
 				E276C83F256441D500C6C16C /* Language.swift in Sources */,
 				E2D4570F255EB65C00BC3A39 /* LanguageTableViewCell.swift in Sources */,
 				E278C60725488D960012821A /* WeatherResponse.swift in Sources */,
@@ -404,9 +446,11 @@
 			files = (
 				E27652E9256D81BF00595F70 /* CurrencyManagerTests.swift in Sources */,
 				E2540E1525AE0F09008DC90D /* NetworkManagerMock.swift in Sources */,
+				E2540E2525AF2FAD008DC90D /* WeatherManagerTest.swift in Sources */,
 				E2FEED8425AB0F8200A777BF /* URLSessionFake.swift in Sources */,
 				E27FC106257FF6130026C89B /* NumberFormatterMock.swift in Sources */,
 				E2540E1D25AE1252008DC90D /* NetworkManagerTests.swift in Sources */,
+				E2540E2125AF2F84008DC90D /* TranslateManagerTest.swift in Sources */,
 				E2FEED8825AB103B00A777BF /* URLSessionDataTaskFake.swift in Sources */,
 				E2CC3D2A252B42D000026CED /* WeatherValuesFormatterTests.swift in Sources */,
 				E2EB0C3F25ACB922002FEC8F /* FakeResponseData.swift in Sources */,

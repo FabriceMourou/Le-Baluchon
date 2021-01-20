@@ -1,18 +1,27 @@
 import Foundation
 
 
+enum TranslateManagerError: Error {
+    case failedToGetInformationForTranslate
+    case failedTotranslate
+    case failedToGetTranslateDataInformation
+    case failedToCreateUrlForTranslate
+}
+
 class TranslateManager {
     
-    enum TranslateManagerError: Error {
-        case failedToGetInformationForTranslate
-        case failedTotranslate
-        case failedToGetTranslateDataInformation
-        case failedToCreateUrlForTranslate
+    
+    private let networkManager: NetworkManagerProtocol
+    private var urlComponents: URLComponentsProtocol
+    
+    
+    init(
+        networkManager: NetworkManagerProtocol = NetworkManager(),
+        urlComponents: URLComponentsProtocol = URLComponents()
+    ) {
+        self.networkManager = networkManager
+        self.urlComponents = urlComponents
     }
-    
-    
-    private let networkManager = NetworkManager()
-    
     
     
     
@@ -23,6 +32,7 @@ class TranslateManager {
             completion(.failure(.failedToGetInformationForTranslate))
             return
         }
+        
         
         
         guard let url = getTranslateURL(
@@ -58,8 +68,6 @@ class TranslateManager {
     
     
     private func getTranslateURL(sourceLanguageCode: String, targetLanguageCode: String, textToTranslate: String) -> URL? {
-        
-        var urlComponents = URLComponents()
         
         urlComponents.scheme = "https"
         urlComponents.host = "translation.googleapis.com"

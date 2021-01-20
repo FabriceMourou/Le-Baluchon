@@ -12,9 +12,7 @@ class CurrencyManagerTests: XCTestCase {
         currencyManager = CurrencyManager()
     }
     
-    
-//test_alwaysFailNetworkManager_givenValidFailed
-    //test_givenAlwaysFailNetworkManager_whenConvertValueWithRate_thenGetFailedToGetInformationForConversionError
+
     
     func test_givenInvalidResponse_whenConvertValueWithRate_thenGetFailedToGetInformationForConversionError() throws {
         
@@ -30,7 +28,8 @@ class CurrencyManagerTests: XCTestCase {
         // When
         
         currencyManager.convertValueWithRate(value: 100, sourceCurrency: .dollar, targetCurrency: .euro) { (result) in
-            // Then
+            
+        // Then
             switch result {
             case .success:
                 XCTFail()
@@ -112,7 +111,7 @@ class CurrencyManagerTests: XCTestCase {
     }
    
 
-    //             urlComponents: URLComponentsMock()
+  
     
 }
 

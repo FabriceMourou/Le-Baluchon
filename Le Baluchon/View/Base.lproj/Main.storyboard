@@ -242,7 +242,7 @@
                                     <constraint firstAttribute="trailing" secondItem="B5x-rw-7op" secondAttribute="trailing" id="t4Z-uy-cVB"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hTF-He-wwU">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hTF-He-wwU">
                                 <rect key="frame" x="141.5" y="232" width="37" height="37"/>
                                 <color key="color" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
@@ -314,37 +314,38 @@
                                 <rect key="frame" x="21" y="160.5" width="278" height="227"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="eah-MY-pxe" userLabel="High/Low Stack View">
-                                        <rect key="frame" x="63" y="0.0" width="152" height="22"/>
+                                        <rect key="frame" x="61.5" y="0.0" width="155.5" height="22"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D3I-6M-jUo">
-                                                <rect key="frame" x="0.0" y="-1" width="16.5" height="26"/>
+                                                <rect key="frame" x="0.0" y="1" width="20" height="20"/>
                                                 <color key="tintColor" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="pMC-32-ekT"/>
                                                     <constraint firstAttribute="height" constant="20" id="qD4-nz-Cbw"/>
                                                 </constraints>
-                                                <imageReference key="image" image="thermometer" catalog="system" symbolScale="large"/>
+                                                <imageReference key="image" image="thermometer" symbolScale="large"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yCB-f2-GGN" userLabel="High Label">
-                                                <rect key="frame" x="23.5" y="2" width="28" height="18"/>
+                                                <rect key="frame" x="27" y="2" width="28" height="18"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                                 <color key="textColor" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31°c" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMK-mG-N79" userLabel="Hight Temperature Label">
-                                                <rect key="frame" x="58.5" y="0.0" width="28" height="22"/>
+                                                <rect key="frame" x="62" y="0.0" width="28" height="22"/>
                                                 <fontDescription key="fontDescription" name="Bittermilk" family="Bittermilk" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THx-ff-wT4" userLabel="Low Label">
-                                                <rect key="frame" x="93.5" y="2" width="23.5" height="18"/>
+                                                <rect key="frame" x="97" y="2" width="23.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                                 <color key="textColor" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31°c" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDt-56-AKz">
-                                                <rect key="frame" x="124" y="0.0" width="28" height="22"/>
+                                                <rect key="frame" x="127.5" y="0.0" width="28" height="22"/>
                                                 <fontDescription key="fontDescription" name="Bittermilk" family="Bittermilk" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                                 <nil key="highlightedColor"/>
@@ -597,7 +598,6 @@
                                         <color key="tintColor" red="0.042278490959999998" green="0.1118900701" blue="0.20087608700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.062816776340000005" green="0.12129325420000001" blue="0.23879480359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
                                             <action selector="didTapTranslateButton" destination="cwZ-LT-uSh" eventType="touchUpInside" id="kzr-e8-M4W"/>
@@ -645,7 +645,6 @@
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Ea-iv-vNO">
                                 <rect key="frame" x="57" y="142" width="206" height="126"/>
-                                <color key="color" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dg3-6e-MwK"/>
@@ -851,7 +850,7 @@
         <scene sceneID="iGX-H4-DDD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5aj-GA-ry7" customClass="BaluchonNavigationController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="JxG-CQ-izE"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="square.fill" catalog="system" selectedImage="square.fill" id="JxG-CQ-izE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ywl-P2-n6O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -876,11 +875,10 @@
         <image name="arrow.up.right.and.arrow.down.left.rectangle" catalog="system" width="128" height="93"/>
         <image name="blueSky" width="3024" height="4032"/>
         <image name="circlebadge.2" catalog="system" width="128" height="93"/>
-        <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="plane" width="512" height="512"/>
-        <image name="play" catalog="system" width="120" height="128"/>
+        <image name="square.fill" catalog="system" width="128" height="114"/>
         <image name="sun.max.fill" catalog="system" width="128" height="124"/>
-        <image name="thermometer" catalog="system" width="93" height="128"/>
+        <image name="thermometer" width="1129" height="2167"/>
         <image name="whiteSky" width="6016" height="4016"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
