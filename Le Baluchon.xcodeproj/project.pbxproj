@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E211F49225372B080023BEF0 /* Reglisse.otf in Resources */ = {isa = PBXBuildFile; fileRef = E211F49125372B080023BEF0 /* Reglisse.otf */; };
+		E212D4D725C095280093C651 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212D4D625C095280093C651 /* CurrencyTests.swift */; };
+		E212D4DF25C1A85B0093C651 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212D4DE25C1A85B0093C651 /* LanguageTests.swift */; };
 		E2300B872552AE7F00BBB843 /* WeatherValuesFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2300B862552AE7F00BBB843 /* WeatherValuesFormatter.swift */; };
 		E2300B8F2552AFDD00BBB843 /* TranslateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2300B8E2552AFDD00BBB843 /* TranslateResponse.swift */; };
 		E230AD00253F470D00F514B3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E230ACFF253F470D00F514B3 /* Currency.swift */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		E211F49125372B080023BEF0 /* Reglisse.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Reglisse.otf; sourceTree = "<group>"; };
+		E212D4D625C095280093C651 /* CurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTests.swift; sourceTree = "<group>"; };
+		E212D4DE25C1A85B0093C651 /* LanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LanguageTests.swift; path = "Le Baluchon/Model/Translate/LanguageTests.swift"; sourceTree = SOURCE_ROOT; };
 		E2300B862552AE7F00BBB843 /* WeatherValuesFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherValuesFormatter.swift; sourceTree = "<group>"; };
 		E2300B8E2552AFDD00BBB843 /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
 		E230ACFF253F470D00F514B3 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				E27652E8256D81BF00595F70 /* CurrencyManagerTests.swift */,
 				E27FC102257FF5DD0026C89B /* NumberFormatterMock.swift */,
+				E212D4D625C095280093C651 /* CurrencyTests.swift */,
 			);
 			path = CurrencyTest;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		E2540E2925AF2FD4008DC90D /* TranslateTest */ = {
 			isa = PBXGroup;
 			children = (
+				E212D4DE25C1A85B0093C651 /* LanguageTests.swift */,
 				E2540E2025AF2F84008DC90D /* TranslateManagerTest.swift */,
 			);
 			path = TranslateTest;
@@ -445,9 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E27652E9256D81BF00595F70 /* CurrencyManagerTests.swift in Sources */,
+				E212D4DF25C1A85B0093C651 /* LanguageTests.swift in Sources */,
 				E2540E1525AE0F09008DC90D /* NetworkManagerMock.swift in Sources */,
 				E2540E2525AF2FAD008DC90D /* WeatherManagerTest.swift in Sources */,
 				E2FEED8425AB0F8200A777BF /* URLSessionFake.swift in Sources */,
+				E212D4D725C095280093C651 /* CurrencyTests.swift in Sources */,
 				E27FC106257FF6130026C89B /* NumberFormatterMock.swift in Sources */,
 				E2540E1D25AE1252008DC90D /* NetworkManagerTests.swift in Sources */,
 				E2540E2125AF2F84008DC90D /* TranslateManagerTest.swift in Sources */,

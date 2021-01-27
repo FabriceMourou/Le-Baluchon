@@ -169,8 +169,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueSky" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-qB-cL8">
-                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shashank-sahay-nP_N-bjLp7g-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-qB-cL8">
+                                <rect key="frame" x="-10" y="44" width="330" height="475"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plane" translatesAutoresizingMaskIntoConstraints="NO" id="R38-FF-8jV">
                                 <rect key="frame" x="-319" y="194" width="500" height="500"/>
@@ -271,7 +271,7 @@
                             <constraint firstItem="7YS-aO-ccU" firstAttribute="trailing" secondItem="3Gb-qB-cL8" secondAttribute="trailing" id="aC9-w3-hgK"/>
                             <constraint firstItem="R38-FF-8jV" firstAttribute="top" secondItem="7YS-aO-ccU" secondAttribute="top" constant="150" id="bba-wh-ol2"/>
                             <constraint firstItem="w5s-Tt-hoZ" firstAttribute="leading" secondItem="7YS-aO-ccU" secondAttribute="leading" constant="30" id="cVE-NE-oWT"/>
-                            <constraint firstItem="3Gb-qB-cL8" firstAttribute="leading" secondItem="7YS-aO-ccU" secondAttribute="leading" id="kRC-bw-d2C"/>
+                            <constraint firstItem="3Gb-qB-cL8" firstAttribute="leading" secondItem="7YS-aO-ccU" secondAttribute="leading" constant="-10" id="kRC-bw-d2C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qvj-sc-6Vr"/>
@@ -873,9 +873,9 @@
         <image name="5€" width="1800" height="1508"/>
         <image name="Mouth" width="3829" height="6027"/>
         <image name="arrow.up.right.and.arrow.down.left.rectangle" catalog="system" width="128" height="93"/>
-        <image name="blueSky" width="3024" height="4032"/>
         <image name="circlebadge.2" catalog="system" width="128" height="93"/>
         <image name="plane" width="512" height="512"/>
+        <image name="shashank-sahay-nP_N-bjLp7g-unsplash" width="2250" height="4000"/>
         <image name="square.fill" catalog="system" width="128" height="114"/>
         <image name="sun.max.fill" catalog="system" width="128" height="124"/>
         <image name="thermometer" width="1129" height="2167"/>

@@ -12,28 +12,33 @@ enum WeatherManagerError: Error {
 }
 
 class WeatherManager {
-
-    init(
-        networkManager: NetworkManagerProtocol = NetworkManager()
-    ) {
-        self.networkManager = networkManager
-    }
     
     private let networkManager: NetworkManagerProtocol
     private let weatherValuesFormatter = WeatherValuesFormatter()
     private var weatherResponse: WeatherResponse?
-   
+    private var urlComponents: URLComponentsProtocol
     
+    
+
+    init(
+        networkManager: NetworkManagerProtocol = NetworkManager(),
+        urlComponents: URLComponentsProtocol = URLComponents()
+    ) {
+        self.networkManager = networkManager
+        self.urlComponents = urlComponents
+    }
+    
+
     
     func getWeatherDataFromCity(cityName: String?, completion: @escaping (Result<FormattedWeatherData, WeatherManagerError>) -> Void) {
         
         guard let cityInput = cityName else {
-            completion(.failure(.failedToGetInformationForWeather))
+            completion(.failure(.failedToConvertValue))
             return
         }
         
         guard let url = getWeatherValuesURL(cityName: cityInput) else {
-            completion(.failure(.failedToConvertValue))
+            completion(.failure(.failedToCreateUrlForWeather))
             return
         }
         
@@ -90,7 +95,7 @@ class WeatherManager {
     
     
     func getWeatherIconImage(iconId: String, completion: @escaping (Result<Data, WeatherManagerError>) -> Void) {
-        guard let iconUrl = URL(string: "http://openweathermap.org/img/wn/\(iconId)@2x.png") else {
+        guard let iconUrl = getWeatherIconUrl(iconId: iconId) else {
             completion(.failure(.failedToCreateUrlForWeatherIconImageData))
             return
         }
@@ -109,8 +114,7 @@ class WeatherManager {
     }
     
     private func getWeatherValuesURL(cityName: String) -> URL? {
-        
-        var urlComponents = URLComponents()
+
         
         urlComponents.scheme = "http"
         urlComponents.host = "api.openweathermap.org"
@@ -120,6 +124,18 @@ class WeatherManager {
             .init(name: "appid", value: "022b0764cc4f75219db52fb5bb71cd2b"),
             .init(name: "units", value: "metric")
         ]
+        
+        return urlComponents.url
+    }
+    
+    
+    
+    private func getWeatherIconUrl(iconId: String) -> URL? {
+        
+        
+        urlComponents.scheme = "http"
+        urlComponents.host = "openweathermap.org"
+        urlComponents.path = "/img/wn/\(iconId)@2x.png"
         
         return urlComponents.url
     }

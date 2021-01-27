@@ -17,8 +17,8 @@ class FormattedWeatherData {
         self.iconId = iconId
     }
     
-    let temperature: String?
-    let feelLikeTemperature: String?
+    var temperature: String?
+    var feelLikeTemperature: String?
     
     let highTemperature: String?
     let lowTemperature: String?
@@ -36,3 +36,6 @@ class FormattedWeatherData {
     let iconId: String?
     
 }
+
+
+

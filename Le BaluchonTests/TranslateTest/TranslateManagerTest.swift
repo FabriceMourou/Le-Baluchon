@@ -61,12 +61,6 @@ class TranslateManagerTest: XCTestCase {
     
     func test_givenNoText_whenTranslateText_thenGetFailedToGetInformationForTranslate() throws {
         
-//        let translateResponse = TranslateResponse(data: DataClass(translations: [Translation(translatedText: "")]))
-//
-//        let networkManagerMock = NetworkManagerMock(
-//            resultSuccessType: TranslateResponse.self,
-//            resultFetch: .success(.badStatusCode)
-//        )
         
         let translateManager = TranslateManager()
         

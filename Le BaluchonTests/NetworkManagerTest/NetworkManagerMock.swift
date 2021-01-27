@@ -1,6 +1,10 @@
 import Foundation
 @testable import Le_Baluchon
 
+class DecodableMock: Decodable {
+    
+}
+
 class NetworkManagerMock<U: Decodable>: NetworkManagerProtocol {
     init(
         resultSuccessType: U.Type,
