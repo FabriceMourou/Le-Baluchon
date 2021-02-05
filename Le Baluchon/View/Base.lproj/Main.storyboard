@@ -90,10 +90,11 @@
                                             <constraint firstAttribute="height" constant="55" id="Jew-5Q-Wfs"/>
                                             <constraint firstAttribute="width" constant="55" id="k9v-zb-auc"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <imageReference key="image" image="arrow.up.right.and.arrow.down.left.rectangle" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="Double Fleche" symbolScale="large"/>
                                         </state>
                                         <connections>
                                             <action selector="didTapSwapCurrenciesButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kd4-Oo-JTz"/>
@@ -169,7 +170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shashank-sahay-nP_N-bjLp7g-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-qB-cL8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlueSky" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-qB-cL8">
                                 <rect key="frame" x="-10" y="44" width="330" height="475"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plane" translatesAutoresizingMaskIntoConstraints="NO" id="R38-FF-8jV">
@@ -390,7 +391,7 @@
                                         <color key="textColor" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hv2-ht-cSt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hv2-ht-cSt">
                                         <rect key="frame" x="33.5" y="22" width="132" height="87.5"/>
                                         <fontDescription key="fontDescription" name="Bittermilk" family="Bittermilk" pointSize="67"/>
                                         <color key="textColor" red="0.060494001950000001" green="0.11177044360000001" blue="0.19642567629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -789,7 +790,7 @@
         <scene sceneID="A5I-zp-Kbo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8wY-Su-iu9" customClass="BaluchonNavigationController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="circlebadge.2" catalog="system" selectedImage="circlebadge.2" id="gm7-iD-xZY"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="money-exchange" selectedImage="money-exchange" id="gm7-iD-xZY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pog-50-geh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -831,7 +832,7 @@
         <scene sceneID="4bj-59-U2l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J5U-Rf-wBx" customClass="BaluchonNavigationController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="sun.max.fill" catalog="system" selectedImage="sun.max.fill" id="zOh-cA-ISX"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="sun" selectedImage="sun" id="zOh-cA-ISX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a4d-hD-FcF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -850,7 +851,7 @@
         <scene sceneID="iGX-H4-DDD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5aj-GA-ry7" customClass="BaluchonNavigationController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="square.fill" catalog="system" selectedImage="square.fill" id="JxG-CQ-izE"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="edit" selectedImage="edit" id="JxG-CQ-izE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ywl-P2-n6O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -871,13 +872,13 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="5€" width="1800" height="1508"/>
+        <image name="BlueSky" width="2250" height="4000"/>
+        <image name="Double Fleche" width="32" height="32"/>
         <image name="Mouth" width="3829" height="6027"/>
-        <image name="arrow.up.right.and.arrow.down.left.rectangle" catalog="system" width="128" height="93"/>
-        <image name="circlebadge.2" catalog="system" width="128" height="93"/>
+        <image name="edit" width="16" height="16"/>
+        <image name="money-exchange" width="16" height="16"/>
         <image name="plane" width="512" height="512"/>
-        <image name="shashank-sahay-nP_N-bjLp7g-unsplash" width="2250" height="4000"/>
-        <image name="square.fill" catalog="system" width="128" height="114"/>
-        <image name="sun.max.fill" catalog="system" width="128" height="124"/>
+        <image name="sun" width="16" height="16"/>
         <image name="thermometer" width="1129" height="2167"/>
         <image name="whiteSky" width="6016" height="4016"/>
         <systemColor name="labelColor">

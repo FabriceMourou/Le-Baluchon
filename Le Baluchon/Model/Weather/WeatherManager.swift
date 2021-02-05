@@ -100,7 +100,7 @@ class WeatherManager {
             return
         }
         
-        networkManager.fetchData(url: iconUrl) { [weak self] (result) in
+        networkManager.fetchData(url: iconUrl) { (result) in
             
             switch result {
             case .success(let iconImageData):

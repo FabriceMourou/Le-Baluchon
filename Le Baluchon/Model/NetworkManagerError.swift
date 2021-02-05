@@ -8,7 +8,7 @@ enum NetworkManagerError: LocalizedError {
     case failedToDecodeJson
     
     
-    var errorDescription: String? {
+    var errorDescription: String {
         switch self {
         case .badStatusCode: return "Bad status code"
         case .failedToDecodeJson: return "Failed to decode json"

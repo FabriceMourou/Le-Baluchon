@@ -26,7 +26,7 @@ class TranslateViewController: BaseViewController {
                 self?.translateActivityIndicator.stopAnimating()
                 
                 switch result {
-                case .failure(let error):
+                case .failure( _):
                     self?.presentAlert()
                 case .success(let translatedText):
                     self?.bottomTextView.text = translatedText
