@@ -18,3 +18,16 @@ Pour obtenir le taux de change, j’utilise l'API **fixer.io** , actualisé à c
 
 
 ![Imgur](https://i.imgur.com/3uWSmVR.png)
+
+
+
+## Weather
+### Informations Météo
+
+Dans les vues météo, nous avons deux écrans :
+- Le premier est destiné à entrer le nom de la ville de son choix, ou de la ville de New York
+- Le second est le résultat de ce choix avec de nombreuses informations météorologiques.
+
+Pour chaque ville, j’affiche les conditions en temps réel en utilisant l'API OpenWeathermap.
+
+![Imgur](https://i.imgur.com/52SfBUx.png)
