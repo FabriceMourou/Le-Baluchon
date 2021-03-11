@@ -30,4 +30,16 @@ Dans les vues météo, nous avons deux écrans :
 
 Pour chaque ville, j’affiche les conditions en temps réel en utilisant l'API OpenWeathermap.
 
-![Imgur](https://i.imgur.com/52SfBUx.png)
+![Weather](https://i.imgur.com/52SfBUx.png)
+
+
+## Translate
+### Choix de langues
+
+L'utilisateur peut écrire la phrase de son choix et obtenir sa traduction.
+Pour cela, j’utilise l'API de Google Translate.
+
+Possibilité d’échanger la langue d'origine et la langue de destination. 
+Choix de 6 langues différentes
+
+![Translate](https://i.imgur.com/yaBukIA.png)
