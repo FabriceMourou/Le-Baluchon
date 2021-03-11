@@ -43,3 +43,25 @@ Possibilité d’échanger la langue d'origine et la langue de destination.
 Choix de 6 langues différentes
 
 ![Translate](https://i.imgur.com/yaBukIA.png)
+
+## Navigation
+
+![Navigation](https://i.imgur.com/fmb3Grf.png)
+
+## Outils utilisés 
+- Xcode
+- API
+- Github
+- XCTest
+- Lucidchard
+- URLSession
+- Postman
+- Quicktype.io
+- 
+
+## Ce que j'ai appris
+
+- Faire des tests unitaires
+- Coder une application multi-pages 
+- Effectuer des appels réseaux standards
+
